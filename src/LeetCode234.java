@@ -1,7 +1,11 @@
-public class LeetCode234
-{
-    static class ListNode
-    {
+/**
+ * Given a singly linked list, determine if it is a palindrome.
+ * <p>
+ * Follow up:
+ * Could you do it in O(n) time and O(1) space?
+ */
+public class LeetCode234 {
+    static class ListNode {
         public ListNode(int value) {
             this.val = value;
         }
@@ -10,31 +14,10 @@ public class LeetCode234
         ListNode next;
     }
 
-    static ListNode reverseList(ListNode listNodeHead) {
-        ListNode pRevertHead = null;
-        ListNode pNode = listNodeHead;
-        ListNode pPrev = null;
-        while (pNode != null) {
-            ListNode pNext = pNode.next;
-            if (pNext == null) {
-                pRevertHead = pNode;
-            }
-            pNode.next = pPrev;
-            pPrev = pNode;
-            pNode = pNext;
+    static class Solution {
+        public static boolean isPalindrome(ListNode head) {
+            return false;
         }
-        return pRevertHead;
-    }
-
-    static boolean isEqual(ListNode l1, ListNode l2) {
-        while (l1 != null && l2 != null) {
-            if (l1.val != l2.val) {
-                return false;
-            }
-            l1 = l1.next;
-            l2 = l2.next;
-        }
-        return true;
     }
 
     public static void main(String[] args) {
@@ -48,10 +31,6 @@ public class LeetCode234
         c.next = new ListNode(3);
         c.next.next = new ListNode(2);
         c.next.next.next = new ListNode(1);
-
-        reverseList(a);
-        if (isEqual(a, c))
-            System.out.println("true");
     }
 
 }
