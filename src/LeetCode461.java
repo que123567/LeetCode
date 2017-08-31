@@ -28,7 +28,7 @@ public class LeetCode461 {
             return res.length();
         }
 
-        public static int hammingDictance_outofrange(int x, int y) {//越界错，最后改为直接把值存入String
+        public static int hammingDictance_outofrange(int x, int y) {//越界错，最后改为直接把值存入String 如上⬆️
             String binaryX = Integer.toBinaryString(x);//二进制x
             String binaryY = Integer.toBinaryString(y);
 

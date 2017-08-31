@@ -21,12 +21,13 @@ public class LeetCode203 {
 
     static class Solution {
         public static ListNode removeElements(ListNode head, int val) {
-            if (head == null) return null;
             head.next = removeElements(head.next, val);
+            if (head == null) return null;
             return head.val == val ? head.next : head;
         }
 
-        public static ListNode removeElements_new(ListNode head, int val) {
+        public static ListNode removeElements_new(ListNode head, int val)
+        {
             ListNode dummyHead = new ListNode(-1);
             dummyHead.next = head;
             ListNode curNode = head;
@@ -51,7 +52,6 @@ public class LeetCode203 {
             a.next.next.next.next = new ListNode(7);
 
             removeElements(a, 7);
-            System.out.println(1);
         }
     }
 }
