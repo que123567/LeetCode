@@ -47,20 +47,21 @@ public class LeetCode66 {
     public static int[] plusOne_2(int[] digits) {
         int n = digits.length;
         for (int i = n - 1; i >= 0; i--) {
+            //有一位不是9,直接+1按返回
             if (digits[i] < 9) {
-                digits[i]++;
+                ++digits[i];
                 return digits;
             }
             digits[i] = 0;
         }
-
+        //执行到这,说明每位全是9
         int[] newNumber = new int[n + 1];
         newNumber[0] = 1;
         return newNumber;
     }
 
     public static void main(String[] args) {
-        int[] res = plusOne_2(new int[]{1, 2, 3, 4});
+        int[] res = plusOne_2(new int[]{0});
         for (int i = 0; i < res.length; i++) {
             System.out.print(res[i]);
         }
