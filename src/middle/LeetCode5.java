@@ -121,6 +121,36 @@ public class LeetCode5 {
     }
 
     /**
+     * DP
+     */
+
+    static class Solution_6 {
+        public static String isPalindrome(String s) {
+            return "";
+        }
+
+        public static String longestPalindrrome_6(String s) {
+            if (s.length() <= 1) {
+                return s;
+            }
+            boolean[][] dp = new boolean[s.length()][s.length()];
+            String res = s.substring(0, 1);
+            //i stand for boundary
+            for (int j = 0; j < s.length(); j++) {
+                for (int i = 0; i <= j; i++) {
+                    dp[i][j] = s.charAt(i) == s.charAt(j) && (j - i <= 2 || dp[i + 1][j - 1]);
+                    if (dp[i][j]) {
+                        if (j - i + 1 > res.length()) {
+                            res = s.substring(i, j + 1);
+                        }
+                    }
+                }
+            }
+            return res;
+        }
+    }
+
+    /**
      * Manacher算法(略)
      */
     static class Solution_5 {
@@ -181,11 +211,11 @@ public class LeetCode5 {
         String c = "a";
         String d = "abccba";
         String e = "abccbd";
-        System.out.println(Solution_5.longestPalindrome(a));
-        System.out.println(Solution_5.longestPalindrome(b));
-        System.out.println(Solution_5.longestPalindrome(c));
-        System.out.println(Solution_5.longestPalindrome(d));
-        System.out.println(Solution_5.longestPalindrome(e));
+//        System.out.println(Solution_6.longestPalindrome_6(a));
+//        System.out.println(Solution_6.longestPalindrome_6(b));
+//        System.out.println(Solution_6.longestPalindrome_6(c));
+//        System.out.println(Solution_6.longestPalindrome_6(d));
+        System.out.println(Solution_6.longestPalindrrome_6("01122222119"));
     }
 
 }
