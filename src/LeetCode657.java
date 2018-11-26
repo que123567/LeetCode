@@ -1,23 +1,36 @@
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import org.omg.CORBA.ARG_OUT;
 
 /**
- * Initially, there is a Robot at position (0, 0). Given a sequence of its moves, judge if this robot makes a circle, which means it moves back to the original place.
+ * 657. Robot Return to Origin
  * <p>
- * The move sequence is represented by a string. And each move is represent by a character. The valid robot moves are R (Right), L (Left), U (Up) and D (down). The output should be true or false representing whether the robot makes a circle.
+ * There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot ends up at (0, 0) after it completes its moves.
+ * <p>
+ * The move sequence is represented by a string, and the character moves[i] represents its ith move. Valid moves are R (right), L (left), U (up), and D (down). If the robot returns to the origin after it finishes all of its moves, return true. Otherwise, return false.
+ * <p>
+ * Note: The way that the robot is "facing" is irrelevant. "R" will always make the robot move to the right once, "L" will always make it move left, etc. Also, assume that the magnitude of the robot's movement is the same for each move.
  * <p>
  * Example 1:
+ * <p>
  * Input: "UD"
  * Output: true
+ * Explanation: The robot moves up once, and then down once. All moves have the same magnitude, so it ended up at the origin where it started. Therefore, we return true.
+ * <p>
+ * <p>
  * Example 2:
+ * <p>
  * Input: "LL"
  * Output: false
+ * Explanation: The robot moves left twice. It ends up two "moves" to the left of the origin. We return false because it is not at the origin at the end of its moves.
  */
 
 //移动过程中根据上下左右记录坐标，判断最后是否回到原点。
 public class LeetCode657 {
     static class Solution {
+        /**
+         * 42ms
+         * @param moves
+         * @return
+         */
         public static boolean judgeCircle(String moves) {
             int[] index = new int[2];// 移动坐标记录x,y轴
             for (int i = 0; i < moves.length(); i++) {
@@ -36,7 +49,19 @@ public class LeetCode657 {
             }
             return (index[0] == 0 && index[1] == 0);
         }
+
+        /**
+         * 100ms
+         * @param moves
+         * @return
+         */
+        public static boolean judgeCircle_n(String moves) {
+            moves = moves.replaceAll("[^UDLR]", "");
+            return moves.replaceAll("[DLR]", "").length() == moves.replaceAll("[ULR]", "").length() &&
+                    moves.replaceAll("[UDL]", "").length() == moves.replaceAll("[UDR]", "").length();
+        }
     }
+
 
     /**
      * 字符串分割判断数量 相等则回到原点
@@ -48,15 +73,8 @@ public class LeetCode657 {
     }
 
     public static void main(String[] args) {
-//        System.out.println(Solution.judgeCircle("UDL"));
-//        System.out.println(Solution.judgeCircle("UDRL"));
-//        IntStream.of(new int[]{1, 2, 3}).forEach(System.out::print);
-//        IntStream.range(1, 10).forEach(System.out::print);
-//        System.out.println();
-//        IntStream.rangeClosed(1,3).forEach(System.out::print);
-        List<Integer> num = Arrays.asList(1, 2, 3, 4);
-        List<Integer> resNum = num.stream().map(n -> n * n).collect(Collectors.toList());
-        resNum.forEach(System.out::print);
+
+        System.out.println(Solution.judgeCircle_n("LL"));
 
     }
 
