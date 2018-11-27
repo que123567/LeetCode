@@ -28,18 +28,9 @@
  */
 public class LeetCode706 {
 
+
     static class MyHashMap {
-        public class ListNode {
-            int key, value;
-            ListNode next;
-
-            public ListNode(int key, int value) {
-                this.key = key;
-                this.value = value;
-            }
-        }
-
-        ListNode[] nodes = new ListNode[10000];
+        ListNode[] mNodes = new ListNode[1024];
 
         /**
          * Initialize your data structure here.
@@ -51,16 +42,15 @@ public class LeetCode706 {
          * value will always be non-negative.
          */
         public void put(int key, int value) {
-            int index = idx(key);
-            //key not exist->new
-            if (nodes[index] == null) {
-                nodes[index] = new ListNode(-1, -1);
+            int index = getIndex(key);
+            if (mNodes[index] == null) {
+                mNodes[index] = new ListNode(-1, -1);
             }
-            ListNode prev = find(nodes[index], key);
-            if (prev.next == null) {
-                prev.next = new ListNode(key, value);
-            }else {
-                prev.next.value = value;
+            ListNode pref = find(mNodes[index], key);
+            if (pref.next == null) {
+                pref.next = new ListNode(key, value);
+            } else {
+                pref.next.value = value;
             }
         }
 
@@ -68,61 +58,66 @@ public class LeetCode706 {
          * Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
          */
         public int get(int key) {
-            return 0;
+            int index = getIndex(key);
+            if (mNodes[index] == null) {
+                return -1;
+            }
+            ListNode prev = find(mNodes[index], key);
+            if (prev == null || prev.next == null) {
+                return -1;
+            }
+            return prev.next.value;
         }
 
         /**
          * Removes the mapping of the specified value key if this map contains a mapping for the key
          */
         public void remove(int key) {
-
-        }
-
-        /**
-         * find the previous node of @param node  in nodes
-         *
-         * @param node
-         * @param key
-         * @return
-         */
-        public ListNode find(ListNode node, int key) {
-            ListNode tmp = node;
-            ListNode pref = null;
-            while (tmp != null && tmp.key != key) {
-                pref = tmp;
-                tmp = tmp.next;
+            int index = getIndex(key);
+            if (mNodes[index] == null) {
+                return;
             }
-            return pref;
+            ListNode prev = find(mNodes[index], key);
+            if (prev == null || prev.next == null) {
+                return;
+            }
+//            prev.next = null;
+            prev.next = prev.next.next;
         }
 
-        /**
-         * calculate the index of the nodes
-         *
-         * @param key
-         * @return
-         */
-        public int idx(int key) {
-            return key % nodes.length;
+        private ListNode find(ListNode listNode, int key) {
+            ListNode temp = listNode;
+            ListNode prev = null;
+            while (temp != null && temp.key != key) {
+                prev = temp;
+                temp = temp.next;
+            }
+            return prev;
+        }
+
+        private int getIndex(int key) {
+            return key < 0 ? 0 : key % mNodes.length;
+        }
+
+        public class ListNode {
+            private int key, value;
+            ListNode next;
+
+            public ListNode(int key, int value) {
+                this.key = key;
+                this.value = value;
+            }
         }
     }
 
-    /**
-     * Your MyHashMap object will be instantiated and called as such:
-     * MyHashMap obj = new MyHashMap();
-     * obj.put(key,value);
-     * int param_2 = obj.get(key);
-     * obj.remove(key);
-     */
     public static void main(String[] args) {
         MyHashMap myHashMap = new MyHashMap();
-        MyHashMap.ListNode listNode = myHashMap.new ListNode(-1, -1);
-
-        listNode.next = myHashMap.new ListNode(1, 10);
-        listNode.next.next = myHashMap.new ListNode(2, 20);
-        listNode.next.next.next = myHashMap.new ListNode(3,30);
-        listNode.next.next.next.next = myHashMap.new ListNode(4,40);
-        listNode.next.next.next.next.next = myHashMap.new ListNode(5,50);
-
-        MyHashMap.ListNode node = myHashMap.find(listNode, 3);
+        for (int i = 0; i < 20; i++) {
+            myHashMap.put(i % 10, i % 10);
+        }
+        System.out.println(myHashMap.get(2));
+        System.out.println(myHashMap.get(3));
+        System.out.println(myHashMap.get(0));
+        System.out.println(myHashMap.get(-1));
     }
 }
