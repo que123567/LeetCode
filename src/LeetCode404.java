@@ -81,6 +81,7 @@ public class LeetCode404 {
      * @param root
      * @return
      */
+
     public static int sumOfLeftLeaves_3(TreeNode root) {
         if (root == null || root.left == null && root.right == null)
             return 0;
