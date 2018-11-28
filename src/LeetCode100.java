@@ -15,7 +15,7 @@ import java.util.Map;
  * TreeNode(int x) { val = x; }
  * }
  */
-class Solution {
+class LeetCode100 {
     public boolean isSameTree(TreeNode p, TreeNode q) {
         return false;
     }

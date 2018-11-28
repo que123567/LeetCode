@@ -1,3 +1,5 @@
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -8,11 +10,11 @@ import java.util.Queue;
  * <p>
  * Example:
  * <p>
- * 3
- * / \
- * 9  20
- * /  \
- * 15   7
+ *       3
+ *     /   \
+ *    9     20
+ *   /  \
+ *  15   7
  * <p>
  * There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
  */
