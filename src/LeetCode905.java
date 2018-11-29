@@ -50,6 +50,6 @@ public class LeetCode905 {
         for (int i = 0; i < res.length; i++) {
             System.out.print(res[i] + " ");
         }
-
     }
+
 }
