@@ -58,7 +58,7 @@ public class LeetCode112 {
 
         while (!pathQueue.isEmpty()) {
             TreeNode currentNode = pathQueue.poll();
-            Integer currentVal = sumQueue.poll();
+            int currentVal = sumQueue.poll();
 
             if (currentNode.left == null && currentNode.right == null) {
                 if (currentVal == sum) {
