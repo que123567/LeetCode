@@ -89,6 +89,28 @@ public class LeetCode559 {
         return depth;
     }
 
+    public static int maxDepth_2(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        int depth = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                Node currentNode = queue.poll();
+                if (currentNode.children != null) {
+                    for (Node child : currentNode.children) {
+                        queue.offer(child);
+                    }
+                }
+            }
+            depth++;
+        }
+        return depth;
+    }
+
     public static void main(String[] args) {
         Node node = new Node();
         node.val = 1;
@@ -116,7 +138,7 @@ public class LeetCode559 {
         node1.children = nodeList1;
 
         ////
-        System.out.println(maxDepth(node));
+        System.out.println(maxDepth_2(node));
 
     }
 }
