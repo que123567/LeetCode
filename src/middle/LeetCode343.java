@@ -62,7 +62,6 @@ public class LeetCode343 {
         product *= n;
         return product;
     }
-
     public static void main(String[] args) {
         System.out.println(integerBreak(10));
 
