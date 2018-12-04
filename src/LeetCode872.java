@@ -1,17 +1,15 @@
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 /**
  * Consider all the leaves of a binary tree.  From left to right order, the values of those leaves form a leaf value sequence.
  * <p>
  * <p>     3
- *      /    \
- *      5      1
- *     / \    / \
- *    6  2   9   8
- *   / \
- *  7   4
+ * /    \
+ * 5      1
+ * / \    / \
+ * 6  2   9   8
+ * / \
+ * 7   4
  * <p>
  * For example, in the given tree above, the leaf value sequence is (6, 7, 4, 9, 8).
  * <p>
@@ -37,7 +35,7 @@ public class LeetCode872 {
     }
 
     public static boolean leafSimilar(TreeNode root1, TreeNode root2) {
-        return traverseString(root1).equals(traverseString(root2));
+        return traverseString_(root1).equals(traverseString_(root2));
     }
 
     /**
@@ -83,7 +81,6 @@ public class LeetCode872 {
         }
         return str.toString();
     }
-
 
     public static void main(String[] args) {
         TreeNode treeNode = new TreeNode(3);
