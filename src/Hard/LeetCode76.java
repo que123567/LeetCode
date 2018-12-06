@@ -14,8 +14,9 @@ import java.util.Map;
  * Output: "BANC"
  */
 public class LeetCode76 {
+
     public static String minWindow(String s, String t) {
-        if (s.length() < t.length()) {
+        if (t.length() > s.length()) {
             return "";
         }
         Map<Character, Integer> map = new HashMap<>();
@@ -26,7 +27,6 @@ public class LeetCode76 {
         int begin = 0, end = 0;
         int len = Integer.MAX_VALUE;
         int head = 0;
-
         while (end < s.length()) {
             char endC = s.charAt(end);
             if (map.containsKey(endC)) {
@@ -36,7 +36,6 @@ public class LeetCode76 {
                 }
             }
             end++;
-
             while (count == 0) {
                 char beginC = s.charAt(begin);
                 if (map.containsKey(beginC)) {
@@ -52,12 +51,14 @@ public class LeetCode76 {
                 begin++;
             }
         }
-        if (len == Integer.MAX_VALUE)
+        if (len == Integer.MAX_VALUE) {
             return "";
+        }
         return s.substring(head, head + len);
     }
 
     public static void main(String[] args) {
         System.out.println(minWindow("a", "a"));
+        System.out.println(minWindow("ADOBECODEBANC", "ABC"));
     }
 }
