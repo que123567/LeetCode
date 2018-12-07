@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * 682. Baseball Game
  * <p>
@@ -15,6 +17,13 @@
  * <p>
  * Example 1:
  * Input: ["5","2","C","D","+"]
+ * example
+ * <p>
+ * 5 + 2 - 2 =5
+ * 5 + 10 = 15
+ * 15+5+15=30
+ * <p>
+ * <p>
  * Output: 30
  * Explanation:
  * Round 1: You could get 5 points. The sum is: 5.
@@ -40,6 +49,10 @@
  */
 public class LeetCOde682 {
 
+    /**
+     * @param ops
+     * @return
+     */
     public static int calPoints(String[] ops) {
         int sum = 0;
         int valid[] = new int[ops.length];
@@ -68,8 +81,52 @@ public class LeetCOde682 {
         return sum;
     }
 
+    /**
+     * @param ops
+     * @return
+     */
+    public static int calPoints_(String[] ops) {
+        Stack<Integer> stack = new Stack();
+        for (String op : ops) {
+            if (op.equals("+")) {
+                int top = stack.pop();
+                int new1 = top + stack.peek();
+                stack.push(top);
+                stack.push(new1);
+            } else if (op.equals("C")) {
+                stack.pop();
+            } else if (op.equals("D")) {
+                stack.push(2 * stack.peek());
+            } else {
+                stack.push(Integer.valueOf(op));
+            }
+        }
+        int ans = 0;
+        for (int score : stack)
+            ans += score;
+        return ans;
+    }
+
+    public static int calPoints_my(String[] ops) {
+        Stack<Integer> stack = new Stack<>();
+        for (String str : ops) {
+            if (str.equals("+")) {
+
+            }else
+            if (str.equals("C")) {
+                stack.pop();
+            }else if (str.equals("D")) {
+                stack.push(2 * stack.peek());
+            } else {
+                stack.push(Integer.valueOf(str));
+            }
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
         String[] res = new String[]{"5", "-2", "4", "C", "D", "9", "+", "+"};
-        System.out.println(calPoints(res));
+        //5/-2/
+        System.out.println(calPoints_(res));
     }
 }
