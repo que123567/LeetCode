@@ -85,48 +85,32 @@ public class LeetCOde682 {
      * @param ops
      * @return
      */
-    public static int calPoints_(String[] ops) {
-        Stack<Integer> stack = new Stack();
-        for (String op : ops) {
-            if (op.equals("+")) {
-                int top = stack.pop();
-                int new1 = top + stack.peek();
-                stack.push(top);
-                stack.push(new1);
-            } else if (op.equals("C")) {
-                stack.pop();
-            } else if (op.equals("D")) {
-                stack.push(2 * stack.peek());
-            } else {
-                stack.push(Integer.valueOf(op));
-            }
-        }
-        int ans = 0;
-        for (int score : stack)
-            ans += score;
-        return ans;
-    }
-
     public static int calPoints_my(String[] ops) {
         Stack<Integer> stack = new Stack<>();
         for (String str : ops) {
             if (str.equals("+")) {
-
-            }else
-            if (str.equals("C")) {
+                int top = stack.pop();
+                int sum = top + stack.peek();
+                stack.push(top);
+                stack.push(sum);
+            } else if (str.equals("C")) {
                 stack.pop();
-            }else if (str.equals("D")) {
+            } else if (str.equals("D")) {
                 stack.push(2 * stack.peek());
             } else {
                 stack.push(Integer.valueOf(str));
             }
         }
-        return 0;
+        int res = 0;
+        for (int score : stack) {
+            res += score;
+        }
+        return res;
     }
 
     public static void main(String[] args) {
         String[] res = new String[]{"5", "-2", "4", "C", "D", "9", "+", "+"};
-        //5/-2/
-        System.out.println(calPoints_(res));
+
+        System.out.println(calPoints_my(res));
     }
 }
