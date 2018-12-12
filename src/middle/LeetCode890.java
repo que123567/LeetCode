@@ -36,6 +36,14 @@ import java.util.Map;
  */
 public class LeetCode890 {
 
+
+    /**
+     * Solution_1
+     *
+     * @param words
+     * @param pattern
+     * @return
+     */
     public static List<String> findAndReplacePattern(String[] words, String pattern) {
         List<String> list = new ArrayList<>();
         for (String word : words) {
@@ -74,9 +82,41 @@ public class LeetCode890 {
         return true;
     }
 
+
+    /**
+     * Solution_2
+     * 统计每个对应位置字母出现次数
+     * 索引+次数匹配,则匹配上.
+     *
+     * @param words
+     * @param pattern
+     * @return
+     */
+    public static List<String> findAndReplacePattern_(String[] words, String pattern) {
+        List<String> list = new ArrayList<>();
+        for (String w : words) {
+            int[] p = new int[26], s = new int[26];
+            boolean same = true;
+            for (int i = 0; i < w.length(); i++) {
+                int indexA = w.charAt(i) - 'a';
+                int indexB = pattern.charAt(i) - 'a';
+                if (s[indexA] != p[indexB]) {
+                    same = false;
+                    break;
+                }
+                s[indexA] = p[indexB] = i + 1;
+            }
+            if (same) {
+                list.add(w);
+            }
+        }
+        return list;
+    }
+
+
     public static void main(String[] args) {
         String[] a = new String[]{"abc", "deq", "mee", "aqq", "dkd", "ccc"};
-        List<String> res = findAndReplacePattern(a, "122");
+        List<String> res = findAndReplacePattern_(a, "abb");
         for (String str : res) {
             System.out.print(str + " ");
         }
