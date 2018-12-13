@@ -139,7 +139,7 @@ public class LeetCode14 {
         if (strs.length == 0)
             return "";
 
-        Arrays.sort(strs);
+        Arrays.sort(strs);//mark
         char[] first = strs[0].toCharArray();
         char[] last = strs[strs.length - 1].toCharArray();
 
@@ -150,10 +150,12 @@ public class LeetCode14 {
     }
 
     public static void main(String[] args) {
-        String[] strings = new String[2];
-        strings[0] = "aaa";
-        strings[1] = "aa";
+        String[] strings = new String[4];
+        strings[0] = "flower";
+        strings[1] = "flo";
+        strings[2] = "faot";
+        strings[3] = "flent";
 
-        System.out.println(longestCommonPrefix_4(strings));
+        System.out.println(longestCommonPrefix_1(strings));
     }
 }

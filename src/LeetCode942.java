@@ -31,7 +31,7 @@
 public class LeetCode942 {
 
     public static int[] diStringMatch(String S) {
-        int res[] = new int[S.length()];
+        int res[] = new int[S.length() + 1];
         int begin = 0;
         int end = S.length();
         for (int i = 0; i < S.length(); i++) {
@@ -43,14 +43,15 @@ public class LeetCode942 {
                 res[i] = begin++;
             }
         }
+        res[S.length()] = begin;//??
         return res;
     }
 
     public static void main(String[] args) {
-//        int[] res = diStringMatch("IDID");
-        int[] res = diStringMatch("DDI");
+        int[] res = diStringMatch("IDID");
+//        int[] res = diStringMatch("DDI");
         for (int i = 0; i < res.length; i++) {
-            System.out.print(res[i]+" ");
+            System.out.print(res[i] + " ");
         }
     }
 }
