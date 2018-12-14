@@ -1,7 +1,6 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Given an n-ary tree, return the preorder traversal of its nodes' values.
@@ -45,17 +44,29 @@ public class LeetCode589 {
      */
     public static List<Integer> preorder(Node root) {
         List<Integer> list = new ArrayList<>();
-        Queue<Node> queue = new LinkedList<>();
-        queue.offer(root);
-        while (!queue.isEmpty()) {
-            Node currentNode = queue.poll();
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            Node currentNode = stack.pop();
             list.add(currentNode.val);
             if (currentNode.children != null) {
-                for (Node node : currentNode.children) {
-                    queue.offer(node);
+                for (int i = currentNode.children.size() - 1; i >= 0; i--) {
+                    stack.push(currentNode.children.get(i));
                 }
             }
         }
+        return list;
+    }
+
+    public static List<Integer> list = new ArrayList<>();
+
+    public static List<Integer> preorder_(Node root) {
+        if (root == null)
+            return list;
+
+        list.add(root.val);
+            for (Node node : root.children)
+                preorder_(node);
         return list;
     }
 
@@ -86,9 +97,9 @@ public class LeetCode589 {
 
         node1.children = nodeList1;
 
-        List<Integer> list = preorder(node);
+        List<Integer> list = preorder_(null);
         for (int i : list) {
-            System.out.print(i+" ");
+            System.out.print(i + " ");
         }
     }
 }
