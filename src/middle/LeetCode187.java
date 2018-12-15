@@ -43,28 +43,26 @@ public class LeetCode187 {
     /**
      * Solution2
      * (String转int存储)
+     *
      * @param s
      * @return
      */
     public static List<String> findRepeatedDnaSequences_2(String s) {
         Set<Integer> words = new HashSet<>();
-        Set<Integer> doubleWords = new HashSet<>();
+        Set<Integer> douleWords = new HashSet<>();
 
         List<String> res = new ArrayList<>();
         char[] chars = new char[26];
-//        chars['A' - 'A'] = 0;
         chars['C' - 'A'] = 1;
         chars['G' - 'A'] = 2;
         chars['T' - 'A'] = 3;
-
         for (int i = 0; i < s.length() - 9; i++) {
             int v = 0;
             for (int j = i; j < i + 10; j++) {
                 v <<= 2;
-//                System.out.print("v移位前:" + v);
                 v |= chars[s.charAt(j) - 'A'];
             }
-            if (!words.add(v) && doubleWords.add(v)) {
+            if (!words.add(v) && douleWords.add(v)) {
                 res.add(s.substring(i, i + 10));
             }
         }
@@ -72,8 +70,14 @@ public class LeetCode187 {
     }
 
     public static void main(String[] args) {
-        List<String> res = findRepeatedDnaSequences_2("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT");
-        for (String s : res) {
+        List<String> res1 = findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT");
+        List<String> res2 = findRepeatedDnaSequences_2("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT");
+        for (String s : res1) {
+            System.out.println(s);
+        }
+        System.out.println();
+
+        for (String s : res2) {
             System.out.println(s);
         }
     }
