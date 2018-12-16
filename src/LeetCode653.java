@@ -45,6 +45,7 @@ public class LeetCode653 {
 
     /**
      * DFS
+     *
      * @param root
      * @param k
      * @return
@@ -54,7 +55,7 @@ public class LeetCode653 {
         return DFS(root, set, k);
     }
 
-    public static boolean DFS(TreeNode root, Set<Integer> set, int k) {
+    public static Boolean DFS(TreeNode root, Set<Integer> set, int k) {
         if (root == null) {
             return false;
         }
@@ -62,7 +63,7 @@ public class LeetCode653 {
             return true;
         }
         set.add(root.val);
-        return DFS(root.left, set, k) || DFS(root.right, set, k);
+        return DFS(root, set, k);
     }
 
     public static void main(String[] args) {
