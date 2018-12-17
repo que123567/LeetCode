@@ -1,4 +1,4 @@
-package middle;
+package medium;
 
 /**
  * 3. Longest Substring Without Repeating Characters

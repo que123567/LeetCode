@@ -1,4 +1,4 @@
-package middle;
+package medium;
 
 /**
  * 695. Max Area of Island

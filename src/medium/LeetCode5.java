@@ -1,4 +1,4 @@
-package middle;
+package medium;
 
 /**
  * 5. Longest Palindromic Substring

@@ -1,4 +1,4 @@
-package middle;
+package medium;
 
 /**
  * 814. Binary Tree Pruning

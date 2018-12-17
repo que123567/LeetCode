@@ -1,4 +1,4 @@
-package middle;
+package medium;
 
 /**
  * 647. Palindromic Substrings

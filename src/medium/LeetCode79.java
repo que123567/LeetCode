@@ -1,4 +1,4 @@
-package middle;
+package medium;
 
 /**
  * 79.Word Search

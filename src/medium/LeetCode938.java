@@ -1,4 +1,4 @@
-package middle;
+package medium;
 
 /**
  * 938. Range Sum of BST

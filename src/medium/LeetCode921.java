@@ -1,4 +1,4 @@
-package middle;
+package medium;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
