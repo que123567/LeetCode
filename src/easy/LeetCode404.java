@@ -1,5 +1,6 @@
 package easy;
 
+import DataStructure.TreeNode;
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 import java.util.LinkedList;
@@ -22,25 +23,6 @@ import java.util.Queue;
  */
 public class LeetCode404 {
 
-    /**
-     * Definition for a binary tree node.
-     * public class TreeNode {
-     * int val;
-     * TreeNode left;
-     * TreeNode right;
-     * TreeNode(int x) { val = x; }
-     * }
-     */
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * recursion

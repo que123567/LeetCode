@@ -1,5 +1,7 @@
 package easy;
 
+import DataStructure.TreeNode;
+
 import java.util.Stack;
 
 /**
@@ -27,14 +29,6 @@ import java.util.Stack;
  */
 public class LeetCode872 {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left, right;
-
-        public TreeNode(int val) {
-            this.val = val;
-        }
-    }
 
     public static boolean leafSimilar(TreeNode root1, TreeNode root2) {
         return traverseString_(root1).equals(traverseString_(root2));

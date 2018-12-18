@@ -1,5 +1,7 @@
 package easy;
 
+import DataStructure.TreeNode;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,15 +37,7 @@ import java.util.Set;
  */
 public class LeetCode653 {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     /**
      * DFS

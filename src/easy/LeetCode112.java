@@ -1,5 +1,7 @@
 package easy;
 
+import DataStructure.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -80,14 +82,4 @@ public class LeetCode112 {
         return false;
     }
 
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 }

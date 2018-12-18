@@ -1,5 +1,7 @@
 package easy;
 
+import DataStructure.TreeNode;
+
 /**
  * 700. Search in a Binary Search Tree
  * <p>
@@ -25,14 +27,7 @@ package easy;
  * Note that an empty tree is represented by NULL, therefore you would see the expected output (serialized tree format) as [], not null.
  */
 public class LeetCode700 {
-    public static class TreeNode {
-        int val;
-        TreeNode left, right;
 
-        public TreeNode(int val) {
-            this.val = val;
-        }
-    }
 
     /**
      *

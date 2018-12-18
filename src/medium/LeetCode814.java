@@ -1,5 +1,7 @@
 package medium;
 
+import DataStructure.TreeNode;
+
 /**
  * 814. Binary Tree Pruning
  * <p>
@@ -11,15 +13,6 @@ package medium;
  */
 //剪枝,去0
 public class LeetCode814 {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public static TreeNode pruneTree(TreeNode root) {
         if (root == null) {

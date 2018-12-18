@@ -2,15 +2,8 @@ package easy; /**
  *
  */
 
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- * int val;
- * TreeNode left;
- * TreeNode right;
- * TreeNode(int x) { val = x; }
- * }
- */
+import DataStructure.TreeNode;
+
 class LeetCode100 {
     public static boolean isSameTree(TreeNode p, TreeNode q) {
         if (p == null && q == null) {
@@ -38,14 +31,6 @@ class LeetCode100 {
         return false;
     }
 
-    public static class TreeNode {
-        int val;
-        TreeNode left, right;
-
-        public TreeNode(int val) {
-            this.val = val;
-        }
-    }
 
     /**
      * 1

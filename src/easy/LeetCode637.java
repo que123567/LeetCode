@@ -1,5 +1,7 @@
 package easy;
 
+import DataStructure.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -23,14 +25,6 @@ import java.util.Queue;
  */
 public class LeetCode637 {
 
-    public static class TreeNode {
-        int val;
-        TreeNode left, right;
-
-        public TreeNode(int val) {
-            this.val = val;
-        }
-    }
 
     public static List<Double> averageOfLevels(TreeNode root) {
         List<Double> list = new ArrayList<>();

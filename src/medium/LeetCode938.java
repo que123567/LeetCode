@@ -1,5 +1,7 @@
 package medium;
 
+import DataStructure.TreeNode;
+
 /**
  * 938. Range Sum of BST
  * <p>
@@ -21,16 +23,6 @@ package medium;
  * code from https://leetcode.com/problems/range-sum-of-bst/discuss/192019/Java-3-recursive-methods-with-comment.
  */
 public class LeetCode938 {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
     /**
      * Solution_1
      *
