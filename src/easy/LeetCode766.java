@@ -2,14 +2,14 @@ package easy;
 
 /**
  * 766. Toeplitz Matrix
- * <p>
+ * .
  * A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element.
- * <p>
+ * .
  * Now given an M x N matrix, return True if and only if the matrix is Toeplitz.
- * <p>
- * <p>
+ * .
+ * .
  * Example 1:
- * <p>
+ * .
  * Input:
  * matrix = [
  * [1,2,3,4],
@@ -22,7 +22,7 @@ package easy;
  * "[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]".
  * In each diagonal all elements are the same, so the answer is True.
  * Example 2:
- * <p>
+ * .
  * Input:
  * matrix = [
  * [1,2],

@@ -5,11 +5,11 @@ import java.util.Deque;
 
 /**
  * 921. Minimum Add to Make Parentheses Valid
- * <p>
+ * .
  * Given a string S of '(' and ')' parentheses, we add the minimum number of parentheses ( '(' or ')', and in any positions ) so that the resulting parentheses string is valid.
- * <p>
+ * .
  * Formally, a parentheses string is valid if and only if:
- * <p>
+ * .
  * It is the empty string, or
  * It can be written as AB (A concatenated with B), where A and B are valid strings, or
  * It can be written as (A), where A is a valid string.
@@ -19,7 +19,7 @@ public class LeetCode921 {
 
     /**
      * Loop through the input array.
-     * <p>
+     * .
      * if encounter '(', push '(' into stack;
      * otherwise, ')', check if there is a matching '(' on top of stack; if no, increase the counter by 1; if yes, pop it out;
      * after the loop, count in the un-matched characters remaining in the stack.

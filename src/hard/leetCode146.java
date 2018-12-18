@@ -2,13 +2,13 @@ package hard;
 
 /**
  * Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.
- * <p>
+ * .
  * get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
  * put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
- * <p>
+ * .
  * Follow up:
  * Could you do both operations in O(1) time complexity?
- * <p>
+ * .
  * LeetCode146_modified cache = new LeetCode146_modified( 2 /* capacity
  */
 

@@ -4,28 +4,28 @@ import java.util.Stack;
 
 /**
  * 682. Baseball Game
- * <p>
+ * .
  * You're now a baseball game point recorder.
- * <p>
+ * .
  * Given a list of strings, each string can be one of the 4 following types:
- * <p>
+ * .
  * Integer (one round's score): Directly represents the number of points you get in this round.
  * "+" (one round's score): Represents that the points you get in this round are the sum of the last two valid round's points.
  * "D" (one round's score): Represents that the points you get in this round are the doubled data of the last valid round's points.
  * "C" (an operation, which isn't a round's score): Represents the last valid round's points you get were invalid and should be removed.
  * Each round's operation is permanent and could have an impact on the round before and the round after.
- * <p>
+ * .
  * You need to return the sum of the points you could get in all the rounds.
- * <p>
+ * .
  * Example 1:
  * Input: ["5","2","C","D","+"]
  * example
- * <p>
+ * .
  * 5 + 2 - 2 =5
  * 5 + 10 = 15
  * 15+5+15=30
- * <p>
- * <p>
+ * .
+ * .
  * Output: 30
  * Explanation:
  * Round 1: You could get 5 points. The sum is: 5.

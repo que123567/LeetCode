@@ -4,17 +4,17 @@ import java.util.Arrays;
 
 /**
  * 14. Longest Common Prefix
- * <p>
+ * .
  * Write a function to find the longest common prefix string amongst an array of strings.
- * <p>
+ * .
  * If there is no common prefix, return an empty string "".
- * <p>
+ * .
  * Example 1:
- * <p>
+ * .
  * Input: ["flower","flow","flight"]
  * Output: "fl"
  * Example 2:
- * <p>
+ * .
  * Input: ["dog","racecar","car"]
  * Output: ""
  * Explanation: There is no common prefix among the input strings.
@@ -24,7 +24,7 @@ public class LeetCode14 {
     /**
      * <--稍做优化版-->
      * 时间复杂度：最坏的情况就是 n 个 长度为 m 的完全一样的字符串，假设 S 是所有字符的和，那么 S = m * n，时间复杂度就是O（S）       当然正常情况下并不需要比较所有字符串，最多比较 n * minLen 个字符就可以了。
-     * <p>
+     * .
      * 空间复杂度：O（1），常数个额外空间。
      *
      * @param strs

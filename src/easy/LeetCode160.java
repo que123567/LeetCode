@@ -4,7 +4,7 @@ import DataStructure.ListNode;
 
 /**
  * https://leetcode.com/problems/intersection-of-two-linked-lists/
- * <p>
+ * .
  * Write a program to find the node at which the intersection of two singly linked lists begins.
  */
 public class LeetCode160 {

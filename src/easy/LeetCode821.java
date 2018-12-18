@@ -2,11 +2,11 @@ package easy;
 
 /**
  * 821. Shortest Distance to a Character
- * <p>
+ * .
  * Given a string S and a character C, return an array of integers representing the shortest distance from the character C in the string.
- * <p>
+ * .
  * Example 1:
- * <p>
+ * .
  * Input: S = "loveleetcode", C = 'e'
  * Output: [3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0]
  */

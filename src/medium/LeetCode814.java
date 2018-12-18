@@ -4,11 +4,11 @@ import DataStructure.TreeNode;
 
 /**
  * 814. Binary Tree Pruning
- * <p>
+ * .
  * We are given the head node root of a binary tree, where additionally every node's value is either a 0 or a 1.
- * <p>
+ * .
  * Return the same tree where every subtree (of the given tree) not containing a 1 has been removed.
- * <p>
+ * .
  * (Recall that the subtree of a node X is X, plus every node that is a descendant of X.)
  */
 //剪枝,去0
