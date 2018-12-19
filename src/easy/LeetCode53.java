@@ -11,16 +11,22 @@ package easy;
  * More practice:
  * If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
  */
-//learning from-->https://leetcode.com/problems/maximum-subarray/discuss/
+
+/**
+ * https://en.wikipedia.org/wiki/Maximum_subarray_problem
+ * learning from-->https://leetcode.com/problems/maximum-subarray/discuss/
+ */
+
 public class LeetCode53 {
-    public static int maxSubArray(int[] A) {
-        int maxRes = A[0];
-        int tmpMaxRes = A[0];
-        for (int i = 1; i < A.length; i++) {
-            tmpMaxRes = Math.max(tmpMaxRes + A[i], A[i]);
-            maxRes = Math.max(tmpMaxRes, maxRes);
+    public static int maxSubArray(int[] nums) {
+        int maxSofar = nums[0];
+        int tmpMaxRes = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            tmpMaxRes = Math.max(tmpMaxRes + nums[i], nums[i]);
+            System.out.println("tmpMax:" + tmpMaxRes);
+            maxSofar = Math.max(tmpMaxRes, maxSofar);
         }
-        return maxRes;
+        return maxSofar;
     }
 
     /**
@@ -34,7 +40,7 @@ public class LeetCode53 {
      * maxSubArray(A, i) = maxSubArray(A, i - 1) > 0 ? maxSubArray(A, i - 1) : 0 + A[i];
      * And here's the code
      */
-    public int maxSubArray_2(int[] A) {
+    public static int maxSubArray_2(int[] A) {
         int n = A.length;
         int[] dp = new int[n];//dp[i] means the maximum subarray ending with A[i];
         dp[0] = A[0];
@@ -67,6 +73,6 @@ public class LeetCode53 {
     }
 
     public static void main(String[] args) {
-        System.out.println(maxSubArray_3(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+        System.out.println(maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
     }
 }
