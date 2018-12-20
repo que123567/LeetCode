@@ -1,5 +1,8 @@
 package medium;
 
+import java.lang.annotation.Target;
+import java.util.stream.Stream;
+
 /**
  * 537. Complex Number Multiplication
  * .
@@ -21,6 +24,13 @@ package medium;
  * The input strings will be given in the form of a+bi, where the integer a and b will both belong to the range of [-100, 100]. And the output should be also in this form.
  */
 public class LeetCode537 {
+    /**
+     * simple Solution
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public static String complexNumberMultiply(String a, String b) {
         String[] A = a.split("\\+");
         String[] B = b.split("\\+");
@@ -46,10 +56,23 @@ public class LeetCode537 {
         return afinal + "+" + bfinal;
     }
 
-    public static void main(String[] args) {
-//        System.out.println(complexNumberMultiply("1+1i", "1+1i"));
-        System.out.println(complexNumberMultiply("1+-1i", "0+0i"));
+    public static String complexNumberMultiply_(String a, String b) {
+        int[] coefs1 = Stream.of(a.split("[+i]")).mapToInt(Integer::parseInt).toArray(),
+                coefs2 = Stream.of(b.split("[+i]")).mapToInt(Integer::parseInt).toArray();
+        return (coefs1[0] * coefs2[0] - coefs1[1] * coefs2[1]) + "+" + (coefs1[0] * coefs2[1] + coefs1[1] * coefs2[0]) + "i";
+    }
 
+    public static void main(String[] args) {
+        System.out.println(complexNumberMultiply_("1+1i", "1+1i"));
+        System.out.println(complexNumberMultiply_("1+-1i", "0+0i"));
+        String test = "1+2-3*5";
+        int[] ss = Stream.of(test.split("[+-/*]")).mapToInt(Integer::parseInt).toArray();
+        System.out.println(ss[0]);
+        System.out.println(ss[1]);
+        System.out.println(ss[2]);
+        System.out.println(ss[3]);
+//        System.out.println(ss[1]);
+//        System.out.println(ss[0]);
 
     }
 }
