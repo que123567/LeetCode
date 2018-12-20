@@ -1,6 +1,7 @@
 package medium;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -36,6 +37,7 @@ import java.util.List;
 public class LeetCode40 {
     public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> lists = new ArrayList<>();
+        Arrays.sort(candidates);
         backTrack(lists, new ArrayList<>(), candidates, target, 0);
         return lists;
     }
@@ -47,11 +49,11 @@ public class LeetCode40 {
             lists.add(new ArrayList<>(tempList));
         } else {
             for (int i = start; i < nums.length; i++) {
-                if (i != start && nums[i - 1] == nums[i]) {
+                if (i > start && nums[i - 1] == nums[i]) {
                     continue;
                 }
                 tempList.add(nums[i]);
-                backTrack(lists, tempList, nums, remain - nums[i], i);
+                backTrack(lists, tempList, nums, remain - nums[i], i+1);
                 tempList.remove(tempList.size() - 1);
             }
         }
