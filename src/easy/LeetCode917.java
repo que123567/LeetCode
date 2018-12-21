@@ -31,6 +31,7 @@ public class LeetCode917 {
 
     /**
      * judge and swap
+     *
      * @param S
      * @return
      */
@@ -53,7 +54,7 @@ public class LeetCode917 {
      * @param S
      * @return
      */
-    public String reverseOnlyLetters_version2(String S) {
+    public static String reverseOnlyLetters_version2(String S) {
         StringBuilder sb = new StringBuilder();
         for (char c : S.toCharArray()) {
             if (Character.isLetter(c))
@@ -67,7 +68,22 @@ public class LeetCode917 {
         return sb.toString();
     }
 
+    public static String reverseOnlyLetters_version3(String S) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = S.length() - 1; i >= 0; i--) {
+            if (Character.isLetter(S.charAt(i))) {
+                sb.append(S.charAt(i));
+            }
+        }
+        for (int i = 0; i < S.length(); i++) {
+            if (!Character.isLetter(S.charAt(i))) {
+                sb.insert(i, S.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
-        System.out.println(reverseOnlyLetters("a-bC-dEf-ghIj"));
+        System.out.println(reverseOnlyLetters_version3("a-bC-dEf-ghIj"));
     }
 }
