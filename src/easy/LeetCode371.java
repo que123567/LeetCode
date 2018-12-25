@@ -32,35 +32,15 @@ public class LeetCode371 {
         return a;
     }
 
-    // Iterative
-    public static int getSubtract(int a, int b) {
-        while (b != 0) {
-            int borrow = (~a) & b;
-            a = a ^ b;
-            b = borrow << 1;
-        }
-
-        return a;
-    }
-
-    public static int getMySum(int a, int b) {
-        if (b == 0 || a == 0) {
-            return a == 0 ? a : b;
-        }
-        return 0;
-    }
-
-    public static int getMySum_(int a, int b) {
-        int c = a & b;
-        if (c != 0)
-            return getSum(((a & b) << 1), a ^ b);
+    public static int Add(int x, int y) {
+        if (y == 0)
+            return x;
         else
-            return a | b;
+            return Add(x ^ y, (x & y) << 1);
     }
 
 
     public static void main(String[] args) {
-        System.out.println(getSum(-2, 5));
-
+        System.out.println(getSum(-2, -1));
     }
 }
