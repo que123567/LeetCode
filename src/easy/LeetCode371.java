@@ -14,6 +14,7 @@ package easy;
  * Input: a = -2, b = 3
  * Output: 1
  */
+//https://www.geeksforgeeks.org/add-two-numbers-without-using-arithmetic-operators/
 public class LeetCode371 {
 
     // Iterative
@@ -26,11 +27,8 @@ public class LeetCode371 {
         while (b != 0) {
             int carry = a & b;
             a = a ^ b;
-            System.out.print("a: " + a);
             b = carry << 1;
-            System.out.println(" b "+b);
         }
-
         return a;
     }
 
@@ -62,7 +60,7 @@ public class LeetCode371 {
 
 
     public static void main(String[] args) {
-        System.out.println(getSum(11, 5));
+        System.out.println(getSum(-2, 5));
 
     }
 }
