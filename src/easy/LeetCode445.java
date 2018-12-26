@@ -1,5 +1,7 @@
 package easy;
 
+import DataStructure.ListNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,14 +22,6 @@ import java.util.List;
  */
 public class LeetCode445 {
 
-    static class ListNode {
-        public ListNode(int value) {
-            this.val = value;
-        }
-
-        int val;
-        ListNode next;
-    }
 
     static class Solution {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {

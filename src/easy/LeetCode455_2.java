@@ -1,5 +1,7 @@
 package easy;
 
+import DataStructure.ListNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,15 +17,6 @@ import java.util.List;
  */
 public class LeetCode455_2
 {
-    static class ListNode
-    {
-        public ListNode(int value) {
-            this.val = value;
-        }
-
-        int val;
-        ListNode next;
-    }
 
     static ListNode ArrayListToListNode(List<Integer> list) {
         ListNode tmpListNode = new ListNode(0);

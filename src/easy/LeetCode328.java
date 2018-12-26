@@ -1,5 +1,7 @@
 package easy;
 
+import DataStructure.ListNode;
+
 /**
  * Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
  * .
@@ -19,14 +21,6 @@ package easy;
 
 //奇数位和奇数位连接，偶数同理。最后把偶数头接入奇数尾
 public class LeetCode328 {
-    static class ListNode {
-        public ListNode(int value) {
-            this.val = value;
-        }
-
-        int val;
-        ListNode next;
-    }
 
     static class Solution {
         public static ListNode oddEvenList(ListNode head) {

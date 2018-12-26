@@ -1,5 +1,7 @@
 package easy;
 
+import DataStructure.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,14 +15,6 @@ import java.util.List;
  */
 
 class LeetCode2 {
-    static class ListNode {
-        public ListNode(int value) {
-            this.val = value;
-        }
-
-        int val;
-        ListNode next;
-    }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         boolean[] isCarry;//是否进位

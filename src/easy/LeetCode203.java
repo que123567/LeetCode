@@ -1,5 +1,7 @@
 package easy;
 
+import DataStructure.ListNode;
+
 /**
  * Remove all elements from a linked list of integers that have value val.
  * .
@@ -12,14 +14,7 @@ package easy;
  */
 public class LeetCode203 {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
 
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     static class Solution {
         public static ListNode removeElements(ListNode head, int val) {

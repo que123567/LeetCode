@@ -1,5 +1,7 @@
 package easy;
 
+import DataStructure.ListNode;
+
 /**
  * Given a singly linked list, determine if it is a palindrome.
  * .
@@ -7,14 +9,7 @@ package easy;
  * Could you do it in O(n) time and O(1) space?
  */
 public class LeetCode234 {
-    static class ListNode {
-        public ListNode(int value) {
-            this.val = value;
-        }
 
-        int val;
-        ListNode next;
-    }
 
     static class Solution {
         public static boolean isPalindrome(ListNode head) {
