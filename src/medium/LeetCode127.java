@@ -41,9 +41,8 @@ import java.util.Set;
  * .
  * Explanation: The endWord "cog" is not in wordList, therefore no possible transformation.
  */
+//https://www.jianshu.com/p/753bd585d57e
 public class LeetCode127 {
-
-
 
     public static int ladderLength(String beginWord, String endWord, List<String> wordLisst) {
         Set<String> wordSet = new HashSet<>(wordLisst);
