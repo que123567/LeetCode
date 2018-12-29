@@ -2,6 +2,9 @@ package easy;
 
 import DataStructure.TreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 101. Symmetric Tree
  * <p>
@@ -25,15 +28,15 @@ import DataStructure.TreeNode;
  */
 public class LeetCode101 {
     /**
-     * Iterarion
+     * Recursion
      */
-    class SolutionI {
+    class SolutionR {
         public boolean isSymmetric(TreeNode root) {
             return root == null || isSymmetricRe(root.left, root.right);
 
         }
 
-        public boolean isSymmetricRe(TreeNode left, TreeNode right) {
+        boolean isSymmetricRe(TreeNode left, TreeNode right) {
             if (left == null || right == null) {
                 return left == right;
             }
@@ -46,13 +49,36 @@ public class LeetCode101 {
     }
 
     /**
-     * Recursion
+     * Iterarion
      */
-    class SolutionR {
+    class SolutionI {
         public boolean isSymmetric(TreeNode root) {
+            Queue<TreeNode> queue = new LinkedList<>();
+            if (root == null)
+                return true;
+            queue.add(root.left);
+            queue.add(root.right);
+            while (queue.size() > 1) {
+                TreeNode left = queue.poll(), right = queue.poll();
+                if (left == null && right == null) {
+                  continue;
+                }
+                if (left == null ^ right == null) {
+                    return false;
+                }
+                if (left.val != right.val) {
+                    return false;
+                }
+                queue.add(left.left);
+                queue.add(right.right);
 
+                queue.add(right.left);
+                queue.add(left.right);
+            }
+            return true;
         }
     }
+
 
     public static void main(String[] args) {
 
