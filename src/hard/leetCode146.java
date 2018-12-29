@@ -24,6 +24,8 @@ package hard;
 //    cache.get(3);       // returns 3
 //    cache.get(4);       // returns 4
 
+import hard.leetCode146.LRUCache.DLinkedNode;
+
 import java.util.Hashtable;
 
 /**
@@ -134,7 +136,6 @@ public class leetCode146 {
                 this.moveToHead(node);
             }
         }
-
 
 
     }
