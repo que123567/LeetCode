@@ -45,7 +45,6 @@ public class LeetCode101 {
             }
             return isSymmetricRe(left.left, right.right) && isSymmetricRe(left.right, right.left);
         }
-
     }
 
     /**
@@ -61,7 +60,7 @@ public class LeetCode101 {
             while (queue.size() > 1) {
                 TreeNode left = queue.poll(), right = queue.poll();
                 if (left == null && right == null) {
-                  continue;
+                    continue;
                 }
                 if (left == null ^ right == null) {
                     return false;
