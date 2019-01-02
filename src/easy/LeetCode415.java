@@ -37,6 +37,7 @@ public class LeetCode415 {
     }
 
     /**
+     * z
      *
      * @param num1
      * @param num2
@@ -56,6 +57,8 @@ public class LeetCode415 {
             int sum = n1 + n2 + carry;
             carry = sum > 9 ? 1 : 0;
             sb.insert(0, sum % 10);
+            l1--;
+            l2--;
         }
         if (carry == 1) {
             sb.insert(0, 1);
