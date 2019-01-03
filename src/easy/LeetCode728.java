@@ -24,54 +24,23 @@ import java.util.List;
  * The boundaries of each input argument are 1 <= left <= right <= 10000.
  */
 public class LeetCode728 {
-    /**
-     * @param left
-     * @param right
-     * @return
-     */
-    public static List<Integer> selfDividingNumbers(int left, int right) {
+    public static List<Integer> selfDividingNumber(int left, int right) {
         List<Integer> list = new ArrayList<>();
-        return list;
-    }
-
-    /**
-     * @param left
-     * @param right
-     * @return
-     */
-    public static List<Integer> selfDividingNumbers_2(int left, int right) {
-        List<Integer> res = new ArrayList<>();
-        for (int i = left, n = 0; i <= right; i++) {
-            for (n = i; n > 0; n /= 10)
+        for (int i = left,n; i <= right; i++) {
+            for (n = i; n > 0; n /= 10) {
                 if (n % 10 == 0 || i % (n % 10) != 0)
                     break;
+            }
             if (n == 0)
-                res.add(i);
+                list.add(i);
         }
-        return res;
+        return list;
     }
-
-    /**
-     * @param left
-     * @param right
-     * @return
-     */
-    public static List<Integer> selfDividingNumbers_3(int left, int right) {
-        List<Integer> res = new ArrayList<>();
-        for (int i = left; i <= right; i++)
-            if (dividingNumber(i))
-                res.add(i);
-        return res;
-    }
-
-    public static boolean dividingNumber(int num) {
-        for (int n = num; n > 0; n /= 10)
-            if (n % 10 == 0 || num % (n % 10) != 0)
-                return false;
-        return true;
-    }
-
     public static void main(String[] args) {
 
+        List<Integer> list = selfDividingNumber(1, 22);
+        for (int i : list) {
+            System.out.print(i+" ");
+        }
     }
 }
