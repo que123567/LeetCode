@@ -3,62 +3,59 @@ package easy;
 import DataStructure.Node;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
 /**
- * Given an n-ary tree, return the preorder traversal of its nodes' values.
- * .
+ * Given an n-ary tree, return the postorder traversal of its nodes' values.
+ * <p>
  * For example, given a 3-ary tree:
  * 1
  * /  |  \
- * 3   2  4
+ * 3   2   4
  * / \
- * 5  6
- * .
- * Return its preorder traversal as: [1,3,5,6,2,4].
- * .
- * .
- * .
- * Note:
- * .
- * Recursive solution is trivial, could you do it iteratively?
+ * 5   6
+ * Return its postorder traversal as: [5,6,3,2,4,1].
  */
-public class LeetCode589 {
-    /**
-     * @param root
-     * @return
-     */
-    public static List<Integer> preorder(Node root) {
-        List<Integer> list = new ArrayList<>();
-        Stack<Node> stack = new Stack<>();
-        stack.push(root);
-        while (!stack.isEmpty()) {
-            Node currentNode = stack.pop();
-            list.add(currentNode.val);
-            if (currentNode.children != null) {
-                for (int i = currentNode.children.size() - 1; i >= 0; i--) {
-                    stack.push(currentNode.children.get(i));
+public class LeetCode590 {
+    static List<Integer> list = new ArrayList<>();
+
+    public static List<Integer> postorder(Node root) {
+        LinkedList<Integer> list = new LinkedList();
+        if (root == null)
+            return list;
+
+        Stack<Node> s = new Stack();
+        s.push(root);
+
+        while (!s.isEmpty()) {
+            Node temp = s.pop();
+            list.addFirst(temp.val);
+            if (temp.children != null) {
+                for (Node n : temp.children) {
+                    s.push(n);
                 }
             }
         }
         return list;
+
     }
 
-    public static List<Integer> list = new ArrayList<>();
-
-    public static List<Integer> preorder_(Node root) {
+    public static List<Integer> postOrder(Node root) {
+        List<Integer> list = new ArrayList<>();
         if (root == null)
             return list;
 
+        for (Node node : root.children)
+            postorder(node);
+
         list.add(root.val);
-            for (Node node : root.children)
-                preorder_(node);
+
         return list;
     }
 
     public static void main(String[] args) {
-
         Node node = new Node();
         node.val = 1;
 
@@ -78,14 +75,15 @@ public class LeetCode589 {
         node4.val = 5;
         Node node5 = new Node();
         node5.val = 6;
+
         List<Node> nodeList1 = new ArrayList<>();
         nodeList1.add(node4);
         nodeList1.add(node5);
 
         node1.children = nodeList1;
 
-        List<Integer> list = preorder_(null);
-        for (int i : list) {
+        List<Integer> res = postorder(node);
+        for (int i : res) {
             System.out.print(i + " ");
         }
     }
