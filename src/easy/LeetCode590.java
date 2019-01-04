@@ -9,7 +9,7 @@ import java.util.Stack;
 
 /**
  * Given an n-ary tree, return the postorder traversal of its nodes' values.
- * <p>
+ * .
  * For example, given a 3-ary tree:
  * 1
  * /  |  \
