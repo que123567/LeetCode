@@ -34,7 +34,7 @@ import java.util.Stack;
  * Input: "{[]}"
  * Output: true
  */
-public class LeetCoed20 {
+public class LeetCode20 {
     /**
      * @param s
      * @return

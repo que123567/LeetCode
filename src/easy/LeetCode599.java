@@ -67,7 +67,7 @@ public class LeetCode599 {
      * @param list2
      * @return
      */
-    public String[] findRestaurant_v(String[] list1, String[] list2) {
+    public static String[] findRestaurant_v(String[] list1, String[] list2) {
         Map<String, Integer> map = new HashMap<>();
         List<String> res = new LinkedList<>();
         int minSum = Integer.MAX_VALUE;
@@ -86,13 +86,11 @@ public class LeetCode599 {
         return res.toArray(new String[res.size()]);
     }
 
-
-
     public static void main(String[] args) {
         String[] a = new String[]{"Shogun", "Piatti", "Burger King", "KFC"};
         String[] b = new String[]{"Piatti", "Shogun", "Hungry Hunter Steakhouse", "Shogun"};
 
-        String[] strings = findRestaurant(a, b);
+        String[] strings = findRestaurant_v(a, b);
         for (String str : strings) {
             System.out.print(str + " ");
         }
