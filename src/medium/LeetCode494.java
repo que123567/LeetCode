@@ -1,5 +1,7 @@
 package medium;
 
+import java.util.Arrays;
+
 /**
  * 494. Target Sum
  * .
@@ -26,12 +28,11 @@ package medium;
  */
 public class LeetCode494 {
     public static int findTargetSumWays(int[] nums, int S) {
-
         return 0;
     }
 
     public static void main(String[] args) {
-
+        System.out.println(Arrays.toString(new int[]{1, 2, 3, 4}));
     }
 
 }

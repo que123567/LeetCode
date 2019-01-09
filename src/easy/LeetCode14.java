@@ -1,5 +1,6 @@
 package easy;
 
+import javax.swing.plaf.PanelUI;
 import java.util.Arrays;
 
 /**
@@ -45,7 +46,6 @@ public class LeetCode14 {
         }
         return strs[0];
     }
-
     /**
      * 将字符串水平排列，第 0 个和第 1 个字符串找最长子串，结果为 leet，再把结果和第 2 个字符串比较，结果为 leet，再把结果和第        3个字符串比较，结果为 lee，即为最终结果。
      *
