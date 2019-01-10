@@ -1,6 +1,5 @@
 package easy;
 
-import org.omg.CORBA.ARG_OUT;
 
 /**
  * 657. Robot Return to Origin
