@@ -24,45 +24,51 @@ public class LeetCode322 {
     /**
      * version_1
      */
-//    static class Solution {
-//        public static int coinChange(int[] coins, int amount) {
-//            if (amount == 0)
-//                return 0;
-//            int n = amount + 1;
-//            for (int coin : coins) {
-//                int curr = 0;
-//                if (coin <= amount) {
-//                    int next = coinChange(coins, amount - coin);
-//                    if (next >= 0)
-//                        curr = 1 + next;
-//                }
-//                if (curr > 0)
-//                    n = Math.min(n, curr);
-//            }
-//            int finalCount = (n == amount + 1) ? -1 : n;
-//            return finalCount;
-//        }
-//    }
-//
-//    static class Solution2 {
-//            public static int coinChange(int[] coins, int amount) {
-//                int[] dp = new int[amount + 1];
-//                Arrays.fill(dp, Integer.MAX_VALUE);
-//                dp[0] = 0;
-//                for (int i = 0; i < coins.length; i++) {
-//                    for (int j = 0; j <= amount; j++) {
-//                        int pre = j - coins[i];
-//                        if (pre >= 0 && dp[pre] < Integer.MAX_VALUE) {
-//                            dp[j] = Math.min(dp[j], dp[pre] + 1);
-//                        }
-//                    }
-//                }
-//                if (dp[amount] == Integer.MAX_VALUE) {
-//                    return -1;
-//                }
-//                return dp[amount];
-//            }
-//    }
+    static class Solution {
+        public static int coinChange(int[] coins, int amount) {
+            if (amount == 0)
+                return 0;
+            int n = amount + 1;
+            for (int coin : coins) {
+                int curr = 0;
+                if (coin <= amount) {
+                    int next = coinChange(coins, amount - coin);
+                    if (next >= 0)
+                        curr = 1 + next;
+                }
+                if (curr > 0)
+                    n = Math.min(n, curr);
+            }
+            int finalCount = (n == amount + 1) ? -1 : n;
+            return finalCount;
+        }
+    }
+
+    static class Solution2 {
+        public static int coinChange(int[] coins, int amount) {
+            int[] dp = new int[amount + 1];
+            Arrays.fill(dp, Integer.MAX_VALUE);
+            dp[0] = 0;
+            for (int i = 0; i < coins.length; i++) {
+                for (int j = 0; j <= amount; j++) {
+                    int pre = j - coins[i];
+                    if (pre >= 0 && dp[pre] < Integer.MAX_VALUE) {
+                        dp[j] = Math.min(dp[j], dp[pre] + 1);
+                    }
+                }
+            }
+            if (dp[amount] == Integer.MAX_VALUE) {
+                return -1;
+            }
+            return dp[amount];
+        }
+    }
+
+    static class Solution3 {
+        public static int coinChange(int[] conis, int amout) {
+            return 0;
+        }
+    }
 
     public static void main(String[] args) {
 //        Solution2.coinChange(new int[]{1, 2, 5}, 11);
