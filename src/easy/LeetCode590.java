@@ -1,7 +1,6 @@
 package easy;
 
 import DataStructure.Node;
-import DataStructure.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -21,31 +20,30 @@ import java.util.Stack;
  */
 public class LeetCode590 {
     /**
+     * Iteration
      * version1
      */
     public static List<Integer> postorder(Node root) {
-        LinkedList<Integer> list = new LinkedList();
-        if (root == null)
+        LinkedList<Integer> list = new LinkedList<>();
+        if (root == null) {
             return list;
-
-        Stack<Node> s = new Stack();
-        s.push(root);
-
-        while (!s.isEmpty()) {
-            Node temp = s.pop();
+        }
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            Node temp = stack.pop();
             list.addFirst(temp.val);
-            System.out.println(temp.val);
             if (temp.children != null) {
-                for (Node n : temp.children) {
-                    s.push(n);
+                for (Node node : temp.children) {
+                    stack.push(node);
                 }
             }
         }
         return list;
-
     }
 
     /**
+     * Recursion
      * version2
      *
      * @param root
@@ -67,33 +65,10 @@ public class LeetCode590 {
     }
 
     public static void main(String[] args) {
-        Node node = new Node();
-        node.val = 1;
+        Node node = Node.makeNodeTree();
 
-        Node node1 = new Node();
-        node1.val = 3;
-        Node node2 = new Node();
-        node2.val = 2;
-        Node node3 = new Node();
-        node3.val = 4;
-        List<Node> nodeList = new ArrayList<>();
-        nodeList.add(node1);
-        nodeList.add(node2);
-        nodeList.add(node3);
-        node.children = nodeList;
 
-        Node node4 = new Node();
-        node4.val = 5;
-        Node node5 = new Node();
-        node5.val = 6;
-
-        List<Node> nodeList1 = new ArrayList<>();
-        nodeList1.add(node4);
-        nodeList1.add(node5);
-
-        node1.children = nodeList1;
-
-        List<Integer> res = postOrder(node);
+        List<Integer> res = postorder(node);
         for (int i : res) {
             System.out.print(i + " ");
         }
