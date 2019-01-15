@@ -52,16 +52,17 @@ public class LeetCode589 {
             return list;
 
         list.add(root.val);
-        for (Node node : root.children)
-            preorder_(node);
+        if (root.children != null) {
+            for (Node node : root.children)
+                preorder_(node);
+        }
         return list;
     }
 
     public static void main(String[] args) {
+        Node node = Node.makeNodeTree_case_1();
 
-        Node node = Node.makeNodeTree();
-
-        List<Integer> list = preorder_(null);
+        List<Integer> list = preorder_(node);
         for (int i : list) {
             System.out.print(i + " ");
         }

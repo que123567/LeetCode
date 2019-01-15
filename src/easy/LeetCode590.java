@@ -65,9 +65,7 @@ public class LeetCode590 {
     }
 
     public static void main(String[] args) {
-        Node node = Node.makeNodeTree();
-
-
+        Node node = Node.makeNodeTree_case_1();
         List<Integer> res = postorder(node);
         for (int i : res) {
             System.out.print(i + " ");
