@@ -1,6 +1,7 @@
 package easy;
 
 import DataStructure.Node;
+import DataStructure.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -19,8 +20,9 @@ import java.util.Stack;
  * Return its postorder traversal as: [5,6,3,2,4,1].
  */
 public class LeetCode590 {
-    static List<Integer> list = new ArrayList<>();
-
+    /**
+     * version1
+     */
     public static List<Integer> postorder(Node root) {
         LinkedList<Integer> list = new LinkedList();
         if (root == null)
@@ -32,6 +34,7 @@ public class LeetCode590 {
         while (!s.isEmpty()) {
             Node temp = s.pop();
             list.addFirst(temp.val);
+            System.out.println(temp.val);
             if (temp.children != null) {
                 for (Node n : temp.children) {
                     s.push(n);
@@ -42,17 +45,47 @@ public class LeetCode590 {
 
     }
 
+    /**
+     * version2
+     *
+     * @param root
+     * @return
+     */
+    static List<Integer> list = new ArrayList<>();
+
     public static List<Integer> postOrder(Node root) {
-        List<Integer> list = new ArrayList<>();
         if (root == null)
             return list;
 
-        for (Node node : root.children)
-            postorder(node);
+        if (root.children != null) {
+            for (Node node : root.children)
+                postOrder(node);
+        }
 
         list.add(root.val);
-
         return list;
+    }
+
+    /**
+     * version3
+     */
+    public static class Solution {
+        TreeNode prev = null, head = null;
+
+        public TreeNode increasingBST(TreeNode root) {
+            if (root == null)
+                return null;
+            increasingBST(root.left);
+            if (prev != null) {
+                root.left = null; // we no  longer needs the left  side of the node, so set it to null
+                prev.right = root;
+            }
+            if (head == null)
+                head = root; // record the most left node as it will be our root
+            prev = root; //keep track of the prev node
+            increasingBST(root.right);
+            return head;
+        }
     }
 
     public static void main(String[] args) {
@@ -82,7 +115,7 @@ public class LeetCode590 {
 
         node1.children = nodeList1;
 
-        List<Integer> res = postorder(node);
+        List<Integer> res = postOrder(node);
         for (int i : res) {
             System.out.print(i + " ");
         }
