@@ -56,6 +56,7 @@ public class LeetCode589 {
             for (Node node : root.children)
                 preorder_(node);
         }
+
         return list;
     }
 
