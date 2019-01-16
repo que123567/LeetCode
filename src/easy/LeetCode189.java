@@ -22,31 +22,34 @@ package easy;
 public class LeetCode189 {
 
     public static void rotate(int[] nums, int k) {
-        if (k >= nums.length) {
-            return;
-        }
-        int[] res = new int[nums.length + 2];
-        int j = 0;
-        for (int i = nums.length - k; i < nums.length; i++) {
-            res[j++] = nums[i];
-        }
+        k %= nums.length;
+        reverse(nums, 0, nums.length - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, nums.length - 1);
 
-        int l = k;
-        for (int i = 0; i < k + 1; i++) {
-            res[l++] = nums[i];
-        }
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = res[i];
+    }
+
+    public static void reverse(int[] nums, int left, int right) {
+        while (left < right) {
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left++;
+            right--;
         }
     }
 
+    //初始 1234567
+    //①   7654321
+    //②   5674321
+    //③   5671234
     public static void main(String[] args) {
         int[] res = new int[]{1, 2, 3, 4, 5, 6, 7};
-        int[] res2 = new int[]{1};
+        int[] res2 = new int[]{1, 2, 3};
         int[] res3 = new int[]{1, 2};
-        int[] res4 = new int[]{1, 2, 3};
-        rotate(res4, 2);
-        for (int i : res4) {
+        int[] res4 = new int[]{1};
+        rotate(res, 3);
+        for (int i : res) {
             System.out.println(i);
         }
 
