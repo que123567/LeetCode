@@ -27,13 +27,14 @@ public class LeetCode22 {
      * @return
      */
     public List<String> generateParenthesis(int n) {
-        List<String> stringList = new ArrayList<>();
-        backTrack(stringList, "", 0, 0, n);
-        return stringList;
+        List<String> list = new ArrayList<>();
+        backTrack(list, "", 0, 0, n);
+        return list;
+
     }
 
     public void backTrack(List<String> list, String str, int open, int close, int max) {
-        if (str.length() == max * 2) {
+        if (str.length() == 2 * max) {
             list.add(str);
             return;
         }
