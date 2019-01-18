@@ -41,10 +41,4 @@ public class LeetCode278 {
     private static boolean isBadVersion(int n) {
         return false;
     }
-
-    public static void main(String[] args) {
-
-    }
-
-
 }
