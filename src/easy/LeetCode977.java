@@ -25,6 +25,12 @@ package easy;
  */
 public class LeetCode977 {
 
+    /**
+     * version1
+     *
+     * @param A
+     * @return
+     */
     public static int[] sortedSquares(int[] A) {
         int left = 0, right = A.length - 1;
         int[] res = new int[A.length];
@@ -38,6 +44,12 @@ public class LeetCode977 {
         return res;
     }
 
+    /**
+     * version2
+     *
+     * @param A
+     * @return
+     */
     public static int[] sortedSquares_(int[] A) {
         int[] r = new int[A.length];
         for (int d = A.length - 1, u = 0, i = d; i >= 0; i--)
