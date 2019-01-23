@@ -68,5 +68,5 @@ public class LeetCode947 {
 //    public static void main(String[] args) {
 //        int[][] stone = new int[][]{{0, 0}, {0, 1}, {1, 0}, {1, 2}, {2, 1}, {2, 2}};
 //        System.out.println(removeStones(stone));
-//    }
+//    }z
 }
