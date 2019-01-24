@@ -8,4 +8,40 @@ public class ListNode {
         val = x;
         next = null;
     }
+
+
+    public static ListNode makeListNodeTestCase1() {
+        ListNode node = new ListNode(1);
+        return node;
+    }
+
+    public static ListNode makeListNodeTestCase2() {
+        ListNode node = new ListNode(1);
+        node.next = new ListNode(3);
+        return node;
+    }
+
+    public static ListNode makeListNodeTestCase3() {
+        ListNode node = new ListNode(1);
+        node.next = new ListNode(3);
+        node.next.next = new ListNode(1);
+        return node;
+    }
+
+    public static ListNode makeListNodeTestCase4() {
+        ListNode node = new ListNode(1);
+        node.next = new ListNode(3);
+        node.next.next = new ListNode(2);
+        node.next.next.next = new ListNode(4);
+        return node;
+    }
+
+    public static ListNode makeListNodeTestCase5() {
+        ListNode node = new ListNode(1);
+        node.next = new ListNode(3);
+        node.next.next = new ListNode(2);
+        node.next.next.next = new ListNode(3);
+        node.next.next.next.next = new ListNode(1);
+        return node;
+    }
 }
