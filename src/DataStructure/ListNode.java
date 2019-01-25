@@ -17,7 +17,7 @@ public class ListNode {
 
     public static ListNode makeListNodeTestCase2() {
         ListNode node = new ListNode(1);
-        node.next = new ListNode(3);
+        node.next = new ListNode(2);
         return node;
     }
 
