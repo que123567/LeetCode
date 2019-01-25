@@ -30,8 +30,8 @@ public class ListNode {
 
     public static ListNode makeListNodeTestCase4() {
         ListNode node = new ListNode(1);
-        node.next = new ListNode(3);
-        node.next.next = new ListNode(2);
+        node.next = new ListNode(2);
+        node.next.next = new ListNode(3);
         node.next.next.next = new ListNode(4);
         return node;
     }

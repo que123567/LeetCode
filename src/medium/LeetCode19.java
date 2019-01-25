@@ -77,7 +77,7 @@ public class LeetCode19 {
     }
 
     public static void main(String[] args) {
-        ListNode noed1 = ListNode.makeListNodeTestCase1();
+        ListNode noed1 = ListNode.makeListNodeTestCase4();
         var res1 = removeNthFromEnd(noed1, 1);
     }
 }
