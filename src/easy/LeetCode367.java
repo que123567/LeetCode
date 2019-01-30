@@ -15,10 +15,14 @@ package easy;
  * Returns: False
  */
 //https://leetcode.com/problems/valid-perfect-square/discuss/
-//method:1 a square number is consisted of 1+3+5+9+11....；
-//method:2 binary search
 public class LeetCode367 {
     static class Solution {
+        /**
+         * method:1 a square number is consisted of 1+3+5+9+11....；
+         *
+         * @param num
+         * @return
+         */
         public static boolean isPerfectSquare1(int num) {
             int i = 1;
             while (num > 0) {
@@ -28,7 +32,37 @@ public class LeetCode367 {
             return num == 0;
         }
 
+        /**
+         * method:2 binary search
+         *
+         * @param num
+         * @return
+         */
         public static boolean isPerfectSquare2(int num) {
+            int low = 1, high = num;
+            while (low <= high) {
+                long mid = (low + high) >>> 1;
+                if (mid * mid == num) {
+                    return true;
+                } else if (mid * mid < num) {
+                    low = (int) mid + 1;
+                } else {
+                    high = (int) mid - 1;
+                }
+            }
+            return false;
+        }
+
+        public static boolean isPerfectSquare3(int num) {
+            int i = 1;
+            for (int j = 0; j < num; j++) {
+                num -= i;
+                i += 2;
+            }
+            return num == 0;
+        }
+
+        public static boolean isPerfectSquare4(int num) {
             int low = 1, high = num;
             while (low <= high) {
                 long mid = (low + high) >>> 1;
