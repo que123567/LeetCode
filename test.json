@@ -1,0 +1,28 @@
+{
+  "enable": true,
+  "floating_column_rule": [
+    {
+      "type": "black",
+      "keep_time": "10000"
+    },
+    {
+      "typle": "qrcode",
+      "keep_time": "15000",
+      "content_url": "/storage/emulated/0/kmbox/advertisement/test_pic.jpg",
+      "bg_url": "/storage/emulated/0/kmbox/advertisement/test_pic.jpg"
+    },
+    {
+      "typle": "ad",
+      "keep_time": "15000",
+      "content_url": "/storage/emulated/0/kmbox/advertisement/test_pic.jpg",
+      "bg_url": "/storage/emulated/0/kmbox/advertisement/test_pic.jpg"
+    },
+    {
+      "typle": "image",
+      "keep_time": "15000",
+      "content_url": "-",
+      "bg_url": "-"
+    }
+  ],
+  "start_playing_time": 5
+}
