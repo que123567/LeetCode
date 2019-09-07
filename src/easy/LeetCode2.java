@@ -7,10 +7,10 @@ import java.util.List;
 
 /**
  * Definition for singly-linked list.
- * public class ListNode {
+ * public class ListNode_ {
  * int val;
- * ListNode next;
- * ListNode(int x) { val = x; }
+ * ListNode_ next;
+ * ListNode_(int x) { val = x; }
  * }
  */
 
@@ -86,11 +86,11 @@ class LeetCode2 {
         //2-7 9-0 1-8  72+9 =81
         ListNode l1 = new ListNode(9);
         l1.next = new ListNode(9);
-//        l1.next.next = new ListNode(3);
+//        l1.next.next = new ListNode_(3);
 
         ListNode l2 = new ListNode(1);
-        //     l2.next = new ListNode(8);
-//        l2.next.next = new ListNode(5);
+        //     l2.next = new ListNode_(8);
+//        l2.next.next = new ListNode_(5);
 
         ListNode l3 = addTwoNumbers(l1, l2);
         while (l3 != null) {

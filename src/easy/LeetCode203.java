@@ -1,6 +1,7 @@
 package easy;
 
 import DataStructure.ListNode;
+import DataStructure.Utils;
 
 /**
  * Remove all elements from a linked list of integers that have value val.
@@ -15,16 +16,16 @@ import DataStructure.ListNode;
 public class LeetCode203 {
 
 
-
     static class Solution {
         public static ListNode removeElements(ListNode head, int val) {
-            head.next = removeElements(head.next, val);
             if (head == null) return null;
+            head.next = removeElements(head.next, val);
             return head.val == val ? head.next : head;
         }
 
-        public static ListNode removeElements_new(ListNode head, int val)
-        {
+        // DUMMY----->1------>3------>2------>-----4----->7
+        // pre   head/cur
+        public static ListNode removeElements_new(ListNode head, int val) {
             ListNode dummyHead = new ListNode(-1);
             dummyHead.next = head;
             ListNode curNode = head;
@@ -49,6 +50,8 @@ public class LeetCode203 {
             a.next.next.next.next = new ListNode(7);
 
             removeElements(a, 7);
+            //travel
+            Utils.getInstance().TraverListNode(a);
         }
     }
 }

@@ -78,8 +78,8 @@ public class LeetCode445 {
         l1.next.next.next.next.next.next.next.next.next = new ListNode(9);
 
         ListNode l2 = new ListNode(7);
-//        l2.next = new ListNode(9);
-//        l2.next.next = new ListNode(4);
+//        l2.next = new ListNode_(9);
+//        l2.next.next = new ListNode_(4);
 
         int num1 = ListToArray(l1);
         int num2 = ListToArray(l2);

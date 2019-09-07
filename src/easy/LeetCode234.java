@@ -62,12 +62,14 @@ public class LeetCode234 {
         ListNode case3 = ListNode.makeListNodeTestCase3();
         ListNode case4 = ListNode.makeListNodeTestCase4();
         ListNode case5 = ListNode.makeListNodeTestCase5();
+        ListNode case6 = ListNode.makeListNodeTestCase6();
 
         System.err.println(Solution.isPalindrome(case1));
         System.err.println(Solution.isPalindrome(case2));
         System.err.println(Solution.isPalindrome(case3));
         System.err.println(Solution.isPalindrome(case4));
         System.err.println(Solution.isPalindrome(case5));
+        System.err.println(Solution.isPalindrome(case6));
     }
 
 }

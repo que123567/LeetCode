@@ -41,12 +41,12 @@ public class LeetCode160 {
         ListNode listNode = new ListNode(2);
         listNode.next = new ListNode(6);
         listNode.next.next = new ListNode(4);
-//        listNode.next.next.next = new ListNode(4);
-//        listNode.next.next.next.next = new ListNode(5);
+//        listNode.next.next.next = new ListNode_(4);
+//        listNode.next.next.next.next = new ListNode_(5);
 
         ListNode listNode2 = new ListNode(1);
         listNode2.next = new ListNode(5);
-//        listNode2.next.next = new ListNode(1);
+//        listNode2.next.next = new ListNode_(1);
 //        listNode2.next.next = listNode.next.next;
 
       getIntersectionNode(listNode, listNode2);

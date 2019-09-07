@@ -32,7 +32,7 @@ public class LeetCode706 {
 
 
     static class MyHashMap {
-        ListNode[] mNodes = new ListNode[1024];
+        ListNode_[] mNodes = new ListNode_[1024];
 
         /**
          * Initialize your data structure here.
@@ -46,11 +46,11 @@ public class LeetCode706 {
         public void put(int key, int value) {
             int index = getIndex(key);
             if (mNodes[index] == null) {
-                mNodes[index] = new ListNode(-1, -1);
+                mNodes[index] = new ListNode_(-1, -1);
             }
-            ListNode pref = find(mNodes[index], key);
+            ListNode_ pref = find(mNodes[index], key);
             if (pref.next == null) {
-                pref.next = new ListNode(key, value);
+                pref.next = new ListNode_(key, value);
             } else {
                 pref.next.value = value;
             }
@@ -64,7 +64,7 @@ public class LeetCode706 {
             if (mNodes[index] == null) {
                 return -1;
             }
-            ListNode prev = find(mNodes[index], key);
+            ListNode_ prev = find(mNodes[index], key);
             if (prev == null || prev.next == null) {
                 return -1;
             }
@@ -79,7 +79,7 @@ public class LeetCode706 {
             if (mNodes[index] == null) {
                 return;
             }
-            ListNode prev = find(mNodes[index], key);
+            ListNode_ prev = find(mNodes[index], key);
             if (prev == null || prev.next == null) {
                 return;
             }
@@ -87,9 +87,9 @@ public class LeetCode706 {
             prev.next = prev.next.next;
         }
 
-        private ListNode find(ListNode listNode, int key) {
-            ListNode temp = listNode;
-            ListNode prev = null;
+        private ListNode_ find(ListNode_ listNode, int key) {
+            ListNode_ temp = listNode;
+            ListNode_ prev = null;
             while (temp != null && temp.key != key) {
                 prev = temp;
                 temp = temp.next;
@@ -101,11 +101,11 @@ public class LeetCode706 {
             return key < 0 ? 0 : key % mNodes.length;
         }
 
-        public class ListNode {
+        public class ListNode_ {
             private int key, value;
-            ListNode next;
+            ListNode_ next;
 
-            public ListNode(int key, int value) {
+            public ListNode_(int key, int value) {
                 this.key = key;
                 this.value = value;
             }

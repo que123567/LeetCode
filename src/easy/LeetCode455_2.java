@@ -106,12 +106,12 @@ public class LeetCode455_2
 
     public static void main(String[] args) {
         ListNode listNode = new ListNode(5);
-//        listNode.next = new ListNode(5);
-//        listNode.next.next = new ListNode(5);
+//        listNode.next = new ListNode_(5);
+//        listNode.next.next = new ListNode_(5);
 
         ListNode newListNode = new ListNode(5);
         newListNode.next = new ListNode(5);
-//        newListNode.next.next = new ListNode(5);
+//        newListNode.next.next = new ListNode_(5);
 
         List<Integer> res = ListNodeToArrayList(listNode);
         List<Integer> newRes = ListNodeToArrayList(newListNode);
