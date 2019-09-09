@@ -65,5 +65,6 @@ public class LeetCode1171 {
             }
             return dummy.next;
         }
+
     }
 }

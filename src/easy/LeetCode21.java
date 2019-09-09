@@ -76,7 +76,7 @@ public class LeetCode21 {
 
         ListNode l3 = mergeTwoLists_(l1, l2);
         while (l3 != null) {
-            System.out.print(l3.val+" ");
+            System.out.print(l3.val + " ");
             l3 = l3.next;
         }
     }
