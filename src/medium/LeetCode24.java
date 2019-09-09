@@ -31,6 +31,31 @@ public class LeetCode24 {
         return dummy.next;
     }
 
+    //        first  second
+    //  pre--> 1 ---> 2 ---> 3 ----> 4
+    //
+    //  step1
+    //  pre--> 2      1 ---> 3 ----> 4
+    //
+    //  step2
+    //  pre-->2 ---->1 --->3   -----> 4
+
+    //        2 ---->1 --->pre -----> 3 -----> 4
+    public static ListNode swapPairs_(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode pre = dummy;
+        while (pre.next != null && pre.next.next != null) {
+            ListNode first = pre.next, second = pre.next.next;
+            first.next = second.next;
+            pre.next = second;
+            pre.next.next = first;
+            pre = pre.next.next;
+        }
+        return dummy.next;
+    }
+
+
     /**
      *  XXXXXXXXXXX
      * 递归版本
