@@ -13,20 +13,12 @@ import DataStructure.ListNode;
  * Output: 1->1->2->3->4->4
  */
 public class LeetCode21 {
-    /**
-     * Iteration
-     *
-     * @param l1
-     * @param l2
-     * @return
-     */
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null || l2 == null) {
             return l1 == null ? l2 : l1;
         }
-        ListNode res = new ListNode(0);
-        ListNode cur = res;
-        while (l1 != null && l2 != null) {
+        ListNode cur = new ListNode(0), dummyHead = cur;
+        while (l1 != null & l2 != null) {
             if (l1.val <= l2.val) {
                 cur.next = l1;
                 l1 = l1.next;
@@ -36,14 +28,13 @@ public class LeetCode21 {
             }
             cur = cur.next;
         }
-
         if (l1 != null) {
             cur.next = l1;
         }
         if (l2 != null) {
             cur.next = l2;
         }
-        return res.next;
+        return dummyHead.next;
     }
 
     /**

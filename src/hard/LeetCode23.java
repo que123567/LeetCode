@@ -2,6 +2,9 @@ package hard;
 
 import DataStructure.ListNode;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 /**
  * 23. Merge k Sorted Lists
  * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
@@ -45,6 +48,7 @@ public class LeetCode23 {
 
         /**
          * merge sort
+         *
          * @param l1
          * @param l2
          * @return
@@ -73,7 +77,121 @@ public class LeetCode23 {
             }
             return dummy.next;
         }
+    }
 
+    /**
+     * [
+     * 1->4->5,
+     * 1->3->4,
+     * 2->6
+     * ]
+     * <p>
+     * tail
+     * 1--->---4---->5
+     * [
+     * 4->5,
+     * 1->3->4,
+     * 2->6
+     * ]
+     * <p>
+     * tail
+     * 1---->1---->3---->4
+     * [
+     * 2->6,
+     * 3->4,
+     * 4->5
+     * ]
+     */
+    static class Solution2 {
+        public ListNode mergeKLists(ListNode[] lists) {
+            if (lists == null || lists.length == 0)
+                return null;
+            PriorityQueue<ListNode> listNodeQueue = new PriorityQueue<>(lists.length, new Comparator<ListNode>() {
+                @Override
+                public int compare(ListNode o1, ListNode o2) {
+                    return Integer.compare(o1.val, o2.val);
+                }
+            });
+            for (ListNode node : lists) {
+                if (node != null) {
+                    listNodeQueue.add(node);
+                }
+            }
+            ListNode dummy = new ListNode(0), tail = dummy;
+            while (!listNodeQueue.isEmpty()) {
+                tail.next = listNodeQueue.poll();
+                tail = tail.next;
+                if (tail.next != null) {
+                    listNodeQueue.add(tail.next);
+                }
+            }
+            return dummy.next;
+        }
+
+    }
+
+    /**
+     * len=7  len/2=3    i=0;1;2      √ :sorted
+     * 0√            0 -  0merge1
+     * <p>
+     * 1√    2√         1 -  2merge3
+     * 2 -  4merge5
+     * 3  4   5  6
+     * <p>
+     * len=4  len/2=2     i=0;1       √ :sorted
+     * 0 √         0 -  0merge1
+     * <p>
+     * 1√    2        1 -  2merge6
+     * <p>
+     * 6
+     * <p>
+     * len=2  len/2=1    i=0;         √ :sorted
+     * 0√         0 -  0merge1
+     * <p>
+     * 1
+     */
+    static class Solution3 {
+        public ListNode mergeKLists(ListNode[] lists) {
+            if (lists == null || lists.length == 0) {
+                return null;
+            }
+            int len = lists.length;
+            while (len != 1) {
+                for (int i = 0; i < len / 2; i++) {
+                    lists[i] = mergeTwo(lists[i * 2], lists[i * 2 + 1]);
+                }
+                if (len % 2 == 1) {
+                    lists[len / 2] = lists[len - 1];
+                }
+                len = (len + 1) / 2;
+            }
+            return lists[0];
+        }
+
+        private ListNode mergeTwo(ListNode l1, ListNode l2) {
+            if (l1 == null || l2 == null) {
+                return l1 == null ? l2 : l1;
+            }
+            ListNode dummy = new ListNode(0), tail = dummy;
+            while (l1 != null && l2 != null) {
+                if (l1.val <= l2.val) {
+                    tail.next = l1;
+                    l1 = l1.next;
+                } else {
+                    tail.next = l2;
+                    l2 = l2.next;
+                }
+                tail = tail.next;
+            }
+
+            if (l1 != null) {
+                tail.next = l1;
+            }
+            if (l2 != null) {
+                tail.next = l2;
+            }
+            return dummy.next;
+        }
     }
 
 

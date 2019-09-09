@@ -1,6 +1,7 @@
 package medium;
 
 import DataStructure.ListNode;
+import DataStructure.Utils;
 
 /**
  * 19. Remove Nth Node From End of List
@@ -51,23 +52,17 @@ public class LeetCode19 {
         return dummyHead.next;
     }
 
-    /**
-     * @param head
-     * @param n
-     * @return
-     */
-    public static ListNode removeNthFromEnd_version2(ListNode head, int n) {
-
+    public static ListNode removeNthFromEnd_version1(ListNode head, int n) {
         ListNode start = new ListNode(0);
         ListNode slow = start, fast = start;
         slow.next = head;
 
         //Move fast in front so that the gap between slow and fast becomes n
-        for (int i = 1; i <= n + 1; i++) {
+        for (int i = 0; i < n; i++) {
             fast = fast.next;
         }
         //Move fast to the end, maintaining the gap
-        while (fast != null) {
+        while (fast.next != null) {
             slow = slow.next;
             fast = fast.next;
         }
@@ -77,7 +72,8 @@ public class LeetCode19 {
     }
 
     public static void main(String[] args) {
-        ListNode noed1 = ListNode.makeListNodeTestCase4();
-        var res1 = removeNthFromEnd(noed1, 1);
+        ListNode noed1 = ListNode.makeListNodeTestCase5();
+        var res1 = removeNthFromEnd_version1(noed1, 2);
+        Utils.getInstance().TraverListNode(res1);
     }
 }
