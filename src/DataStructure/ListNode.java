@@ -24,7 +24,7 @@ public class ListNode {
     public static ListNode makeListNodeTestCase3() {
         ListNode node = new ListNode(1);
         node.next = new ListNode(3);
-        node.next.next = new ListNode(1);
+        node.next.next = new ListNode(5);
         return node;
     }
 

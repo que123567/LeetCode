@@ -1,8 +1,6 @@
 package easy;
 
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,10 +43,7 @@ public class LeetCode1 {
 
     public static void main(String[] args) {
 
-        int[] ints = new int[]{2, 7, 11, 15};
-        int[] res = twoSum(ints, 9);
-        for (int i = 0; i < res.length; i++) {
-            System.out.println(res[i]);
-        }
     }
+
+
 }

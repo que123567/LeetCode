@@ -2,6 +2,7 @@ package hard;
 
 import DataStructure.ListNode;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -191,6 +192,54 @@ public class LeetCode23 {
                 tail.next = l2;
             }
             return dummy.next;
+        }
+    }
+
+    static class Solution4 {
+        public static ListNode mergeKLists(ListNode[] lists) {
+            if (lists.length == 0) {
+                return null;
+            }
+            if (lists.length == 1) {
+                return lists[0];
+            }
+            int middle = lists.length / 2;
+            ListNode[] leftNode = Arrays.copyOfRange(lists, 0, middle);
+            ListNode[] rightNode = Arrays.copyOfRange(lists, middle, lists.length);
+
+            ListNode left = mergeKLists(leftNode);
+            ListNode right = mergeKLists(rightNode);
+
+            return merge2Lists(left, right);
+        }
+
+        public static ListNode merge2Lists(ListNode l1, ListNode l2) {
+            if (l1 == null || l2 == null) {
+                return l1 == null ? l2 : l1;
+            }
+            if (l1.val < l2.val) {
+                l1.next = merge2Lists(l1.next, l2);
+                return l1;
+            } else {
+                l2.next = merge2Lists(l1, l2.next);
+                return l2;
+            }
+        }
+
+        public static void main(String[] args) {
+            ListNode listNode1 = ListNode.makeListNodeTestCase5();
+            ListNode listNode2 = ListNode.makeListNodeTestCase2();
+            ListNode listNode3 = ListNode.makeListNodeTestCase3();
+            ListNode listNode4 = ListNode.makeListNodeTestCase4();
+
+            ListNode[] listNodes = new ListNode[]{listNode1, listNode2, listNode4, listNode3};
+            ListNode listNodeFinal = mergeKLists(listNodes);
+
+            while (listNodeFinal != null) {
+                System.out.print(listNodeFinal.val + " < ");
+                listNodeFinal = listNodeFinal.next;
+            }
+
         }
     }
 
