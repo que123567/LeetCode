@@ -77,6 +77,45 @@ public class LeetCode79 {
 
 
     /**
+     * 简洁版
+     */
+    public static class Solution2 {
+
+
+        public static boolean exist(char[][] board, String word) {
+            char[] words = word.toCharArray();
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[i].length; j++) {
+                    if (dfs(board, words, i, j, 0)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+
+        public static boolean dfs(char[][] board, char[] word, int i, int j, int index) {
+            if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || board[i][j] != word[index]) {
+                return false;
+            }
+            if (index == word.length - 1) {
+                return true;
+            }
+            char tmp = board[i][j];
+            board[i][j] = '.';
+            //注："||"逻辑运算符可短路，效率比|高。
+            //此处用"|"超时；用"||"最高效时超过97% 的Java提交
+            boolean res = dfs(board, word, i + 1, j, index + 1) || dfs(board, word, i - 1, j, index + 1) || dfs(board, word, i, j + 1, index + 1) || dfs(board, word, i, j - 1, index + 1);
+            board[i][j] = tmp;
+            return res;
+        }
+
+
+    }
+
+
+    /**
      * a,b,e,j
      * b,c,f,k
      * e,f,i,n
@@ -90,15 +129,15 @@ public class LeetCode79 {
                 board[i][j] = (char) ((i * i + j * j) + 'a');
             }
         }
-        System.out.println(exist(board, "kf"));
-        System.out.println(exist(board, "kfc"));
-        System.out.println(exist(board, "abej"));
-        System.out.println(exist(board, "kfcb"));
+        System.out.println(Solution2.exist(board, "kf"));
+        System.out.println(Solution2.exist(board, "kfc"));
+        System.out.println(Solution2.exist(board, "abej"));
+        System.out.println(Solution2.exist(board, "kfcb"));
 
-        System.out.println(exist(board, "kfcba"));
-        System.out.println(exist(board, "kfcbab"));
-        System.out.println(exist(board, "kfcbabe"));
-        System.out.println(exist(board, "kfcbabej"));
-        System.out.println(exist(board, "kfcbabejk"));
+        System.out.println(Solution2.exist(board, "kfcba"));
+        System.out.println(Solution2.exist(board, "kfcbab"));
+        System.out.println(Solution2.exist(board, "kfcbabe"));
+        System.out.println(Solution2.exist(board, "kfcbabej"));
+        System.out.println(Solution2.exist(board, "kfcbabejk"));
     }
 }
