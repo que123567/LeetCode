@@ -40,9 +40,42 @@ public class LeetCode1 {
         return res;
     }
 
+    public static int[] twoSum2(int[] nums, int target) {
+        int[] res = new int[2];
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    res[0] = i;
+                    res[1] = j;
+                    return res;
+                }
+            }
+        }
+        return res;
+    }
+
+
+    public static int[] twoSum3(int[] nums, int target) {
+        HashMap<Integer, Integer> resMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (resMap.containsKey(target - nums[i])) {
+                return new int[]{resMap.get(target-nums[i]), i};
+            }
+            resMap.put(nums[i], i);
+        }
+        return new int[2];
+    }
+
 
     public static void main(String[] args) {
-
+        int test_1[] = new int[4];
+        test_1[0] = 13;
+        test_1[1] = 2;
+        test_1[2] = -1;
+        test_1[3] = 0;
+        int[] res = twoSum3(test_1, 13);
+        System.out.println(res[0]);
+        System.out.println(res[1]);
     }
 
 

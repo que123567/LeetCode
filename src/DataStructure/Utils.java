@@ -15,7 +15,7 @@ public class Utils {
 
     public void TraverListNode(ListNode listNode) {
         while (listNode != null) {
-            System.out.print(listNode.val + " ");
+            System.out.print(listNode.val + "_");
             listNode = listNode.next;
         }
     }
