@@ -39,8 +39,23 @@ public class LeetCode509 {
 
     }
 
+    public static int fib_2(int n) {
+        if (n == 1 | n == 2) {
+            return 1;
+        }
+        int sum = 0;
+        int prev = 1, curr = 1;
+        for (int i = 3; i <= n; i++) {
+            sum = prev + curr;
+            prev = curr;
+            curr = sum;
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
-        System.out.println(fib(4));
+//        System.out.println(fib(31));
+//        System.out.println(fib_2(31));
 
     }
 }
