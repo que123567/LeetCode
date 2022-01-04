@@ -1,6 +1,5 @@
 package easy;
 
-import javax.swing.plaf.PanelUI;
 import java.util.Arrays;
 
 /**
@@ -46,6 +45,7 @@ public class LeetCode14 {
         }
         return strs[0];
     }
+
     /**
      * 将字符串水平排列，第 0 个和第 1 个字符串找最长子串，结果为 leet，再把结果和第 2 个字符串比较，结果为 leet，再把结果和第        3个字符串比较，结果为 lee，即为最终结果。
      *
@@ -151,6 +151,39 @@ public class LeetCode14 {
         return strs[0].substring(0, i);
     }
 
+    public static String longestCommonPrefix_5(String[] strs) {
+        if (strs == null || strs.length == 0 || strs[0].length() == 0) {
+            return "";
+        }
+        if (strs.length == 1) {
+            return strs[0];
+        }
+
+        int minLength = Integer.MAX_VALUE;
+        String minStr = "";
+        for (String s : strs) {
+            if (s.length() < minLength) {
+                minLength = s.length();
+                minStr = s;
+            }
+        }
+
+        String str = strs[0];
+        int index = Integer.MAX_VALUE;
+        for (int i = 1; i < strs.length; i++) {
+            for (int j = 0; j < minLength; j++) {
+                if (str.charAt(j) != strs[i].charAt(j)) {
+                    index = Math.min(index, j);
+                }
+            }
+        }
+        if (index == Integer.MAX_VALUE) {
+            return minStr;
+        }
+        return str.substring(0, index);
+    }
+
+
     public static void main(String[] args) {
         String[] strings = new String[4];
         strings[0] = "flower";
@@ -158,6 +191,33 @@ public class LeetCode14 {
         strings[2] = "faot";
         strings[3] = "flent";
 
-        System.out.println(longestCommonPrefix_1(strings));
+        String[] strings2 = new String[3];
+        strings2[0] = "flower";
+        strings2[1] = "flow";
+        strings2[2] = "flight";
+
+        String[] strings3 = new String[2];
+        strings3[0] = "ab";
+        strings3[1] = "a";
+
+        String[] strings4 = new String[3];
+        strings4[0] = "abab";
+        strings4[1] = "aba";
+        strings4[2] = "";
+
+        String[] strings5 = new String[1];
+        strings5[0] = "a";
+
+        String[] strings6 = new String[3];
+        strings6[0] = "abcd";
+        strings6[1] = "aba";
+        strings6[2] = "aaab";
+
+        System.out.println(longestCommonPrefix_5(strings));
+        System.out.println(longestCommonPrefix_5(strings2));
+        System.out.println(longestCommonPrefix_5(strings3));
+        System.out.println(longestCommonPrefix_5(strings4));
+        System.out.println(longestCommonPrefix_5(strings5));
+        System.out.println(longestCommonPrefix_5(strings6));
     }
 }

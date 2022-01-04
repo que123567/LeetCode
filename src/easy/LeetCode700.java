@@ -30,7 +30,6 @@ public class LeetCode700 {
 
 
     /**
-     *
      * @param root
      * @param val
      * @return
@@ -41,8 +40,20 @@ public class LeetCode700 {
         }
         if (root.val >= val) {
             return searchBST(root.left, val);
+        } else {
+            return searchBST(root.right, val);
         }
-        return searchBST(root.right, val);
+    }
+
+    public static TreeNode searchBST2(TreeNode node, int val) {
+        if (node == null || node.val == val) {
+            return node;
+        }
+        if (node.val <= val) {
+            return searchBST2(node.right, val);
+        }else{
+            return searchBST2(node.left, val);
+        }
     }
 
 

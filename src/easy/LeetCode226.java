@@ -36,6 +36,24 @@ public class LeetCode226 {
         return root;
     }
 
+    public static TreeNode invertTree2(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+
+        invertTree2(root.left);
+        invertTree2(root.right);
+
+        return root;
+    }
+
     public static void main(String[] args) {
+        TreeNode node = TreeNode.makeTree_Test_Case_2();
+        TreeNode node2 = invertTree2(node);
+
+        TreeNode.travelTree(node2);
     }
 }

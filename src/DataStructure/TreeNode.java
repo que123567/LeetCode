@@ -22,8 +22,24 @@ public class TreeNode {
         return treeNode;
     }
 
+
+    public static TreeNode makeTree_Test_Case_2() {
+        TreeNode treeNode = new TreeNode(4);
+        treeNode.left = new TreeNode(7);
+        treeNode.right = new TreeNode(2);
+
+        treeNode.left.left = new TreeNode(9);
+        treeNode.left.right = new TreeNode(6);
+
+        treeNode.right.left = new TreeNode(3);
+        treeNode.right.right = new TreeNode(1);
+
+        return treeNode;
+    }
+
     /**
      * Travel_1
+     *
      * @param root
      */
     public static void travelTree(TreeNode root) {
