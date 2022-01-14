@@ -4,31 +4,54 @@ package easy; /**
 
 import DataStructure.TreeNode;
 
+import java.util.*;
+
 class LeetCode100 {
-    public static boolean isSameTree(TreeNode p, TreeNode q) {
-        if (p == null && q == null) {
-            return true;
+
+    public static boolean isSameTree(TreeNode tree1, TreeNode tree2) {
+        if (tree1 == null || tree2 == null) {
+            return tree1 == tree2;
         }
-        if (p == null || q == null) {
-            return false;
-        }
-        if (p.val == q.val) {
-            return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+        if (tree1.val == tree2.val) {
+            return isSameTree(tree1.left, tree2.left) && isSameTree(tree1.right, tree2.right);
         }
         return false;
     }
 
-    public static boolean isSametree(TreeNode left, TreeNode right) {
-        if (left == null && right == null) {
-            return true;
+    public static List<Integer> bfs(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
         }
-        if (left == null || right == null) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode tempNode = queue.poll();
+            if (tempNode == null) {
+                res.add(0);
+            } else {
+                res.add(tempNode.val);
+            }
+            if (tempNode != null) {
+                queue.add(tempNode.left);
+                queue.add(tempNode.right);
+            }
+        }
+        return res;
+    }
+
+    public static boolean isSameTree2(TreeNode p, TreeNode q) {
+        List<Integer> a = bfs(p);
+        List<Integer> b = bfs(q);
+        if (a.size() != b.size()) {
             return false;
         }
-        if (left.val == right.val) {
-            return isSameTree(left.left, right.left) && isSameTree(left.right, right.right);
+        for (int i = 0; i < a.size(); i++) {
+            if (!Objects.equals(a.get(i), b.get(i))) {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 
 
@@ -63,9 +86,9 @@ class LeetCode100 {
         treeNode2.right.left = new TreeNode(6);
 //        treeNode2.right.right = new TreeNode(7);
 
-        System.out.println(isSameTree(treeNode, treeNode2));
-        System.out.println(isSameTree(treeNode, treeNode));
-        System.out.println(isSameTree(treeNode2, treeNode2));
+        System.out.println(isSameTree2(treeNode, treeNode2));
+        System.out.println(isSameTree2(treeNode, treeNode));
+        System.out.println(isSameTree2(treeNode2, treeNode2));
 
     }
 }
