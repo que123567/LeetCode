@@ -8,22 +8,22 @@ import java.util.Arrays;
 /**
  * 83. Remove Duplicates from Sorted List
  * Easy
- * <p>
+ * 
  * 896
- * <p>
+ * 
  * 86
- * <p>
+ * 
  * Favorite
- * <p>
+ * 
  * Share
  * Given a sorted linked list, delete all duplicates such that each element appear only once.
- * <p>
+ * 
  * Example 1:
- * <p>
+ * 
  * Input: 1->1->2
  * Output: 1->2
  * Example 2:
- * <p>
+ * 
  * Input: 1->1->2->3->3
  * Output: 1->2->3
  */

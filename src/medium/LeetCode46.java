@@ -1,6 +1,7 @@
 package medium;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -22,26 +23,34 @@ import java.util.List;
  * ]
  */
 public class LeetCode46 {
-    public static List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> lists = new ArrayList<>();
-        backTrack(lists, new ArrayList<>(), nums);
-        return lists;
-    }
 
-    public static void backTrack(List<List<Integer>> lists, List<Integer> tmpList, int[] nums) {
-        if (tmpList.size() == nums.length)
-            lists.add(new ArrayList<>(tmpList));
-        for (int num : nums) {
-            if (tmpList.contains(num))
-                continue;
-            tmpList.add(num);
-            backTrack(lists, tmpList, nums);
-            tmpList.remove(tmpList.size() - 1);
+    static class Solution1 {
+        List<List<Integer>> res = new ArrayList<>();
+
+        public List<List<Integer>> permute(int[] nums) {
+            backTrack(new LinkedList<>(), nums);
+            return res;
+        }
+
+        private void backTrack(LinkedList<Integer> trackList, int[] nums) {
+            if (trackList.size() == nums.length) {
+                res.add(new ArrayList<>(trackList));
+            } else {
+                for (int num : nums) {
+                    if (trackList.contains(num)) {
+                        continue;
+                    }
+                    trackList.add(num);
+                    backTrack(trackList, nums);
+                    trackList.removeLast();
+                }
+            }
         }
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> res = permute(new int[]{1, 2, 3});
+        Solution1 solution1 = new Solution1();
+        List<List<Integer>> res = solution1.permute(new int[]{1, 2, 3});
         for (List<Integer> list : res) {
             for (int i : list) {
                 System.out.print(i + " ");

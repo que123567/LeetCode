@@ -12,13 +12,13 @@ public class LeetCode160 {
     /**
      * 此方法相当于把链表分别成两条一样长度的组成链表,最后由于两条链表连接起来长度相等,也一起迭代,最终会一起迭代到重叠部分.
      * 1->2->3
-     *        ->8->13
-     *    7->5
-     *
+     * ->8->13
+     * 7->5
+     * <p>
      * 1->2->3->8->13->7->5->8->13
      * 7->5->8->13->1->2->3->8->13
-     *
      * 可见:最终由于2条链表长度相等,且属于共同迭代,最终一定会一起迭代到重叠部分(上例为8)
+     *
      * @param headA
      * @param headB
      * @return
@@ -36,6 +36,27 @@ public class LeetCode160 {
         return a;
     }
 
+    static class Solution2 {
+        public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+            ListNode p1 = headA, p2 = headB;
+            while (p1 != p2) {
+                if (p1 == null) {
+                    p1 = headB;
+                } else {
+                    p1 = p1.next;
+                }
+
+                if (p2 == null) {
+                    p2 = headA;
+                } else {
+                    p2 = p2.next;
+                }
+            }
+            return p1;
+        }
+
+    }
+
 
     public static void main(String[] args) {
         ListNode listNode = new ListNode(2);
@@ -49,7 +70,7 @@ public class LeetCode160 {
 //        listNode2.next.next = new ListNode_(1);
 //        listNode2.next.next = listNode.next.next;
 
-      getIntersectionNode(listNode, listNode2);
+        getIntersectionNode(listNode, listNode2);
     }
 
 }
