@@ -38,7 +38,6 @@ public class LeetCode884 {
      * JAVA8 Stream的执行效率不高
      */
     /**
-     *
      * @param A
      * @param B
      * @return
@@ -74,7 +73,10 @@ public class LeetCode884 {
     public static String[] uncommonFromSentences_2(String A, String B) {
         Set<String> distinct = new HashSet<>(), com = new HashSet<>();
         for (String s : (A + " " + B).split("\\s")) {
-            if (com.contains(s) || !distinct.add(s)) { distinct.remove(s); com.add(s); }
+            if (com.contains(s) || !distinct.add(s)) {
+                distinct.remove(s);
+                com.add(s);
+            }
         }
         return distinct.toArray(new String[0]);
     }
@@ -97,6 +99,21 @@ public class LeetCode884 {
             }
         }
         return map.keySet().toArray(new String[0]);
+    }
+
+    public String[] uncommonFromSentences_4(String s1, String s2) {
+        String[] splitStr = (s1 + " " + s2).split(" ");
+        HashMap<String, Integer> map = new HashMap<>();
+        for (String str : splitStr) {
+            map.put(str, map.getOrDefault(str, 0) + 1);
+        }
+        List<String> res = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (entry.getValue() == 1) {
+                res.add(entry.getKey());
+            }
+        }
+        return res.toArray(new String[0]);
     }
 
     public static void main(String[] args) {
