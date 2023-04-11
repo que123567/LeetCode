@@ -86,7 +86,7 @@ public class LeetCode23 {
      * 1->3->4,
      * 2->6
      * ]
-     * <p>
+     * 
      * tail
      * 1--->---4---->5
      * [
@@ -94,7 +94,7 @@ public class LeetCode23 {
      * 1->3->4,
      * 2->6
      * ]
-     * <p>
+     * 
      * tail
      * 1---->1---->3---->4
      * [
@@ -134,21 +134,21 @@ public class LeetCode23 {
     /**
      * len=7  len/2=3    i=0;1;2      √ :sorted
      * 0√            0 -  0merge1
-     * <p>
+     * 
      * 1√    2√         1 -  2merge3
      * 2 -  4merge5
      * 3  4   5  6
-     * <p>
+     * 
      * len=4  len/2=2     i=0;1       √ :sorted
      * 0 √         0 -  0merge1
-     * <p>
+     * 
      * 1√    2        1 -  2merge6
-     * <p>
+     * 
      * 6
-     * <p>
+     * 
      * len=2  len/2=1    i=0;         √ :sorted
      * 0√         0 -  0merge1
-     * <p>
+     * 
      * 1
      */
     static class Solution3 {
